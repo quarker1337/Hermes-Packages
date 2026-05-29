@@ -1,0 +1,47 @@
+schema_version = 1
+name = "web-search"
+display_name = "Web Search"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Web search and page extraction tools."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = ["web-search"]
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = ["web"]
+tools = ["web_search", "web_extract"]
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = ["FIRECRAWL_API_KEY", "EXA_API_KEY", "PARALLEL_API_KEY"]
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

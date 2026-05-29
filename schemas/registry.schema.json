@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hermes package registry index",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "packages"],
+  "properties": {
+    "schema_version": {"type": "integer"},
+    "generated_at": {"type": "string"},
+    "packages": {
+      "type": "object",
+      "additionalProperties": {"type": "object"}
+    }
+  }
+}

@@ -1,0 +1,47 @@
+schema_version = 1
+name = "spotify"
+display_name = "Spotify"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Spotify playback, search, queue, and playlist tools."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = ["spotify"]
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = ["spotify"]
+tools = []
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = ["SPOTIFY_CLIENT_ID", "SPOTIFY_CLIENT_SECRET"]
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

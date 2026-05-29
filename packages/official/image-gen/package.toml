@@ -1,0 +1,47 @@
+schema_version = 1
+name = "image-gen"
+display_name = "Image Generation"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Image generation tool integrations."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = ["image-gen"]
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = ["image_gen"]
+tools = ["image_generate"]
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = ["FAL_KEY", "OPENAI_API_KEY"]
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

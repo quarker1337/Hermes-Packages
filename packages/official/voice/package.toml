@@ -1,0 +1,47 @@
+schema_version = 1
+name = "voice"
+display_name = "Voice Mode"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Speech-to-text and voice-to-voice dependencies."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = ["tts"]
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = ["voice"]
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = ["tts"]
+tools = ["tts_speak"]
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = false
+audio = true
+microphone = true
+secrets = []
+
+[env]
+required = []
+optional = ["GROQ_API_KEY", "VOICE_TOOLS_OPENAI_KEY", "MISTRAL_API_KEY"]
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

@@ -1,0 +1,47 @@
+schema_version = 1
+name = "browser"
+display_name = "Browser Automation"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Browser automation tools and local/managed browser backends."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = ["browser"]
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = ["playwright-chromium"]
+
+[tools]
+toolsets = ["browser"]
+tools = ["browser_navigate", "browser_click", "browser_type"]
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = true
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

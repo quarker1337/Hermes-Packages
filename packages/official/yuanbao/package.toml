@@ -1,0 +1,47 @@
+schema_version = 1
+name = "yuanbao"
+display_name = "Yuanbao"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Yuanbao group/member tools."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = ["gateway"]
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = ["yuanbao"]
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = ["yuanbao"]
+tools = ["yuanbao"]
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = ["YUANBAO_COOKIE", "YUANBAO_TOKEN"]
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

@@ -1,0 +1,47 @@
+schema_version = 1
+name = "homeassistant"
+display_name = "Home Assistant"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Smart-home controls through Home Assistant."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = ["homeassistant"]
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = ["homeassistant"]
+tools = []
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = ["HOMEASSISTANT_URL", "HOMEASSISTANT_TOKEN"]
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

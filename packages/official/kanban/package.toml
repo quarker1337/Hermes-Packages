@@ -1,0 +1,47 @@
+schema_version = 1
+name = "kanban"
+display_name = "Kanban Multi-Agent Dispatcher"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Kanban board dispatcher and worker plugin."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = ["kanban"]
+tools = []
+
+[permissions]
+network = true
+filesystem = true
+shell = true
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

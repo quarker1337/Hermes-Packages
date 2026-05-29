@@ -1,0 +1,47 @@
+schema_version = 1
+name = "discord"
+display_name = "Discord Gateway"
+version = "0.1.0"
+type = "toolset"
+channel = "official"
+description = "Discord messaging platform adapter."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = ["gateway"]
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = ["discord"]
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = ["discord"]
+tools = []
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = ["DISCORD_BOT_TOKEN"]
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

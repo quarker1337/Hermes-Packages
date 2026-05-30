@@ -1,0 +1,49 @@
+schema_version = 1
+name = "skills-research"
+display_name = "Research Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party research skill pack for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-research.tar.gz", format = "tar.gz", sha256 = "83eb8f4c71c28b7aa2ba25e88be751a1bab6a0dc8c43f7d8277fe3f864d5b0af", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "83eb8f4c71c28b7aa2ba25e88be751a1bab6a0dc8c43f7d8277fe3f864d5b0af"
+signed = false
+post_install_scripts = false

@@ -1,0 +1,49 @@
+schema_version = 1
+name = "skills-mlops"
+display_name = "MLOps Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party mlops skill pack for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-mlops.tar.gz", format = "tar.gz", sha256 = "a4654cba140332d4b65697a860eed7078f37156ab7cd402ac5f02575717b63b6", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "a4654cba140332d4b65697a860eed7078f37156ab7cd402ac5f02575717b63b6"
+signed = false
+post_install_scripts = false

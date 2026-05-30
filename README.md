@@ -25,6 +25,8 @@ packages/
   skills/<name>/package.toml
   mcp/<name>/package.toml
   community/README.md
+assets/
+  skills/<name>.tar.gz
 registry/
   index.json
   index.min.json
@@ -47,6 +49,23 @@ python scripts/build_index.py
 python -m pytest tests/ -q
 ```
 
+## Skill pack assets
+
+Large first-party skill categories are shipped as package assets instead of
+being bundled into every NanoHermes wheel. A skill-pack manifest points to a
+tarball under `assets/skills/` with an explicit SHA-256:
+
+```toml
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-creative.tar.gz", format = "tar.gz", sha256 = "...", destination = "skills", overwrite = false },
+]
+```
+
+`hermes pkg install ...` resolves relative asset paths from this registry,
+verifies the checksum, rejects unsafe archive members, and extracts into the
+active Hermes home.
+
 ## Current status
 
-Bootstrap registry. Official package manifests are schema-checked and indexed, but the NanoHermes package-manager client will land in `nanoHermes` next.
+Bootstrap registry with official toolset packages plus first-party skill-pack
+assets. Manifests are schema-checked and indexed by `scripts/build_index.py`.

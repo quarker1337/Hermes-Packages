@@ -1,0 +1,49 @@
+schema_version = 1
+name = "skills-productivity"
+display_name = "Productivity Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party productivity skill pack for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-productivity.tar.gz", format = "tar.gz", sha256 = "76a03d98296bd41492ebaac4f983092dda76ce83e84792cd2cdc9d4d84dac95d", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "76a03d98296bd41492ebaac4f983092dda76ce83e84792cd2cdc9d4d84dac95d"
+signed = false
+post_install_scripts = false

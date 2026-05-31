@@ -17,6 +17,12 @@
     "permissions": {"type": "object"},
     "env": {"type": "object"},
     "checks": {"type": "object"},
-    "security": {"type": "object"}
+    "security": {"type": "object"},
+    "contents": {
+      "type": "object",
+      "properties": {
+        "skills": {"type": "array", "items": {"type": "string"}}
+      }
+    }
   }
 }

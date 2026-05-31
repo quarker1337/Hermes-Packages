@@ -141,6 +141,36 @@ def test_optional_platform_and_memory_packages_ship_python_assets():
     assert len(memory_assets[0]["sha256"]) == 64
 
 
+def test_first_tranche_skill_packages_advertise_included_skills():
+    index = build_index(ROOT)
+    expected = {
+        "skills-dev-core": {
+            "software-development/writing-plans",
+            "software-development/test-driven-development",
+            "github/github-pr-workflow",
+        },
+        "skills-hermes-maintainer": {
+            "autonomous-ai-agents/hermes-agent",
+            "software-development/hermes-agent-skill-authoring",
+            "mcp/native-mcp",
+        },
+        "skills-agent-clis": {
+            "autonomous-ai-agents/claude-code",
+            "autonomous-ai-agents/codex",
+            "autonomous-ai-agents/opencode",
+        },
+        "dashboard": {
+            "devops/kanban-orchestrator",
+            "devops/kanban-worker",
+            "autonomous-ai-agents/kanban-codex-lane",
+        },
+    }
+
+    for package_name, skill_names in expected.items():
+        contents = index["packages"][package_name].get("contents", {})
+        assert skill_names <= set(contents.get("skills", []))
+
+
 def test_official_packages_do_not_enable_post_install_scripts():
     index = build_index(ROOT)
     for package in index["packages"].values():

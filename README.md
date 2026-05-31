@@ -8,7 +8,8 @@ This repo is intentionally boring: package manifests live under `packages/`, scr
 
 - Keep NanoHermes core small.
 - Move optional tools into explicit packages.
-- Make installed tool availability honest and inspectable.
+- Move optional skills into explicit checksummed skill-pack assets.
+- Make installed tool and skill availability honest and inspectable.
 - Support apt-like flows:
   - `hermes pkg update`
   - `hermes pkg search web`
@@ -42,18 +43,9 @@ tests/
   test_index_schema.py
 ```
 
-## Build
-
-```bash
-python scripts/build_index.py
-python -m pytest tests/ -q
-```
-
 ## Skill pack assets
 
-Packages can bundle skills by declaring archive-backed assets under
-`install.optional_assets`. Large first-party skill categories are shipped this
-way instead of being bundled into every NanoHermes wheel.
+Packages can bundle skills by declaring archive-backed assets under `install.optional_assets`. Large first-party skill categories are shipped this way instead of being bundled into every NanoHermes wheel.
 
 ```toml
 [install]
@@ -62,13 +54,18 @@ optional_assets = [
 ]
 ```
 
-`hermes pkg install ...` resolves relative asset paths from this registry,
-verifies the checksum, rejects unsafe archive members, and extracts into
-`$HERMES_HOME/skills`. This lets tool packages and standalone skill packages
-ship matching procedural memory without bloating the NanoHermes base wheel.
+Packages that ship skills should also advertise those skill paths through `contents.skills` so clients can show and search package contents without downloading the archive:
+
+```toml
+[contents]
+skills = [
+  "software-development/writing-plans",
+  "github/github-pr-workflow",
+]
+```
+
+`hermes pkg install ...` resolves relative asset paths from this registry, verifies the checksum, rejects unsafe archive members, and extracts into `$HERMES_HOME/skills`. This lets tool packages and standalone skill packages ship matching procedural memory without bloating the NanoHermes base wheel.
 
 ## Current status
 
-Bootstrap registry with official toolset packages plus first-party skill-pack
-assets. Manifests and optional skill-pack assets are schema-checked and indexed
-for the NanoHermes package-manager client.
+Bootstrap registry with official toolset packages plus first-party skill-pack assets. Manifests and optional skill-pack assets are schema-checked and indexed for the NanoHermes package-manager client.

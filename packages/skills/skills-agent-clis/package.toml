@@ -22,6 +22,16 @@ optional_assets = [
   { type = "skill_pack", source = "assets/skills/skills-agent-clis.tar.gz", format = "tar.gz", sha256 = "b3e8763a437746eed2fe4b057f2a609061cbe6411711d224109fc84c99c2395e", destination = "skills", overwrite = false },
 ]
 
+[contents]
+skills = [
+  "autonomous-ai-agents/claude-code",
+  "autonomous-ai-agents/codex",
+  "autonomous-ai-agents/opencode",
+  "autonomous-ai-agents/blackbox",
+  "autonomous-ai-agents/honcho",
+  "autonomous-ai-agents/openhands",
+]
+
 [tools]
 toolsets = []
 tools = []

@@ -22,6 +22,27 @@ optional_assets = [
   { type = "skill_pack", source = "assets/skills/skills-dev-core.tar.gz", format = "tar.gz", sha256 = "b6838b728054483b87a2874b71f93f722429f7173a74dca60b7cdf5e4b582c07", destination = "skills", overwrite = false },
 ]
 
+[contents]
+skills = [
+  "software-development/writing-plans",
+  "software-development/test-driven-development",
+  "software-development/systematic-debugging",
+  "software-development/requesting-code-review",
+  "software-development/plan",
+  "software-development/spike",
+  "software-development/subagent-driven-development",
+  "software-development/python-debugpy",
+  "software-development/node-inspect-debugger",
+  "software-development/code-wiki",
+  "software-development/rest-graphql-debug",
+  "github/codebase-inspection",
+  "github/github-auth",
+  "github/github-code-review",
+  "github/github-issues",
+  "github/github-pr-workflow",
+  "github/github-repo-management",
+]
+
 [tools]
 toolsets = []
 tools = []

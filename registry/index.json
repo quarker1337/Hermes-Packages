@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T18:15:39.769684+00:00",
+  "generated_at": "2026-05-31T18:59:27.853122+00:00",
   "package_count": 26,
   "packages": {
     "browser": {
@@ -261,6 +261,14 @@
         "commands": [],
         "python_imports": []
       },
+      "contents": {
+        "skills": [
+          "devops/kanban-orchestrator",
+          "devops/kanban-worker",
+          "autonomous-ai-agents/kanban-codex-lane",
+          "creative/kanban-video-orchestrator"
+        ]
+      },
       "dependencies": [],
       "description": "Local web UI/API dashboard plus tightly integrated Kanban dispatcher.",
       "display_name": "Local Web Dashboard",
@@ -312,7 +320,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/dashboard/package.toml",
-      "manifest_sha256": "e4f1de089ecaf581458b29b7c82283c91df3b00f8c0f0fae49a4c9c14e4d809f",
+      "manifest_sha256": "62cf3d03fe6036a0b547b91a3aded223d657420108fb4ae9b609376f9fda7f2d",
       "name": "dashboard",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -907,6 +915,16 @@
         "commands": [],
         "python_imports": []
       },
+      "contents": {
+        "skills": [
+          "autonomous-ai-agents/claude-code",
+          "autonomous-ai-agents/codex",
+          "autonomous-ai-agents/opencode",
+          "autonomous-ai-agents/blackbox",
+          "autonomous-ai-agents/honcho",
+          "autonomous-ai-agents/openhands"
+        ]
+      },
       "dependencies": [],
       "description": "Optional first-party skills for delegating work to external autonomous coding CLIs such as Claude Code, Codex, OpenCode, Blackbox, Honcho, and OpenHands.",
       "display_name": "Agent CLI Skills",
@@ -933,7 +951,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/skills/skills-agent-clis/package.toml",
-      "manifest_sha256": "688dd31f9a174091a364d1cc01f39d7f570fe7f952f02123ae54cd74abf123d2",
+      "manifest_sha256": "b278a08e078036e0578fbbe203e3064ba3b22aa9129b7138d6b7f7f055c3b4bb",
       "name": "skills-agent-clis",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -1027,6 +1045,27 @@
         "commands": [],
         "python_imports": []
       },
+      "contents": {
+        "skills": [
+          "software-development/writing-plans",
+          "software-development/test-driven-development",
+          "software-development/systematic-debugging",
+          "software-development/requesting-code-review",
+          "software-development/plan",
+          "software-development/spike",
+          "software-development/subagent-driven-development",
+          "software-development/python-debugpy",
+          "software-development/node-inspect-debugger",
+          "software-development/code-wiki",
+          "software-development/rest-graphql-debug",
+          "github/codebase-inspection",
+          "github/github-auth",
+          "github/github-code-review",
+          "github/github-issues",
+          "github/github-pr-workflow",
+          "github/github-repo-management"
+        ]
+      },
       "dependencies": [],
       "description": "Optional first-party developer workflow skills for NanoHermes: planning, debugging, testing, code review, and GitHub workflows.",
       "display_name": "Developer Core Skills",
@@ -1053,7 +1092,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/skills/skills-dev-core/package.toml",
-      "manifest_sha256": "97c684d09b5d4c447ff99063f1b362b64a51ac4f3ce4b9b7732d28153b91a9ce",
+      "manifest_sha256": "aa1d01d39c7f35e872dde91265ad10951f2e58232ec588ac204f783abf0bd7e5",
       "name": "skills-dev-core",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -1087,6 +1126,17 @@
         "commands": [],
         "python_imports": []
       },
+      "contents": {
+        "skills": [
+          "autonomous-ai-agents/hermes-agent",
+          "software-development/hermes-agent-skill-authoring",
+          "software-development/debugging-hermes-tui-commands",
+          "software-development/hermes-s6-container-supervision",
+          "devops/webhook-subscriptions",
+          "mcp/native-mcp",
+          "migration/openclaw-migration"
+        ]
+      },
       "dependencies": [],
       "description": "Optional first-party skills for maintaining Hermes Agent and NanoHermes internals.",
       "display_name": "Hermes Maintainer Skills",
@@ -1113,7 +1163,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/skills/skills-hermes-maintainer/package.toml",
-      "manifest_sha256": "95d7d0c11e5568e4cb4dff9bdecf9aa608296929dcddcd0437753d3208885dd1",
+      "manifest_sha256": "313ccfb050ac28feac5b4b89d6b4662db1a5fbab6dfb051ea39fa6aa6f954b5e",
       "name": "skills-hermes-maintainer",
       "nanohermes": {
         "max_version": "<1.0.0",

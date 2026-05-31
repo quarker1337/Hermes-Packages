@@ -22,6 +22,17 @@ optional_assets = [
   { type = "skill_pack", source = "assets/skills/skills-hermes-maintainer.tar.gz", format = "tar.gz", sha256 = "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab", destination = "skills", overwrite = false },
 ]
 
+[contents]
+skills = [
+  "autonomous-ai-agents/hermes-agent",
+  "software-development/hermes-agent-skill-authoring",
+  "software-development/debugging-hermes-tui-commands",
+  "software-development/hermes-s6-container-supervision",
+  "devops/webhook-subscriptions",
+  "mcp/native-mcp",
+  "migration/openclaw-migration",
+]
+
 [tools]
 toolsets = []
 tools = []

@@ -18,7 +18,9 @@ python_extras = ["yuanbao"]
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-yuanbao.tar.gz", format = "tar.gz", destination = "skills", overwrite = false },
+]
 
 [tools]
 toolsets = ["yuanbao"]

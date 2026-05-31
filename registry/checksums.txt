@@ -16,4 +16,4 @@ c753d0679d28751c2c67b7e13ea98306b2410e3233ea587a27da5752c53438b3  packages/offic
 0463830276ec8b044ed3eca5cd6045a39770c6175f94206886a097e8e52ee082  packages/official/tts/package.toml  # tts
 3e536c9b80357e702164ae08c39d230ce8a3fd543ecd134812dff6b482067e7f  packages/official/voice/package.toml  # voice
 6241978e59519f927782154755a228b49859a3d71a57005ecdf3daad7f7412bd  packages/official/web-search/package.toml  # web-search
-ebaa13f7828e857f2b19b0eee83fb137a601df969016f2792c54e0be6c8f8150  packages/official/yuanbao/package.toml  # yuanbao
+2260e8d8408c7069e1710be0b2a090ad4f376c2d6cb2145e0bd8883e8a527a06  packages/official/yuanbao/package.toml  # yuanbao

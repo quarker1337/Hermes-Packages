@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T10:02:39.007379+00:00",
+  "generated_at": "2026-05-31T14:23:11.633857+00:00",
   "package_count": 19,
   "packages": {
     "browser": {
@@ -1111,7 +1111,16 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "789f655b73027276e90a4beaa9f6ad6cd3e53d98cfa2ee096ed6836fbeb704f5",
+            "source": "assets/skills/skills-yuanbao.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
         "python_extras": [
           "yuanbao"
         ],
@@ -1121,7 +1130,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/yuanbao/package.toml",
-      "manifest_sha256": "ebaa13f7828e857f2b19b0eee83fb137a601df969016f2792c54e0be6c8f8150",
+      "manifest_sha256": "2260e8d8408c7069e1710be0b2a090ad4f376c2d6cb2145e0bd8883e8a527a06",
       "name": "yuanbao",
       "nanohermes": {
         "max_version": "<1.0.0",

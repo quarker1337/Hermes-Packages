@@ -69,3 +69,26 @@ skills = [
 ## Current status
 
 Bootstrap registry with official toolset packages plus first-party skill-pack assets. Manifests and optional skill-pack assets are schema-checked and indexed for the NanoHermes package-manager client.
+
+Current standalone skill packs include developer core, Hermes maintainer workflows, agent CLI delegation, creative/productivity/research packs, Apple/macOS, media, finance, DevOps, security/OSINT, and split MLOps packs for training, inference, vector DBs, cloud, models, and eval/curation.
+
+Integration packages can attach matching skills directly:
+
+- `spotify` -> `media/spotify`
+- `homeassistant` -> `smart-home/openhue`
+- `web-search` -> lightweight `research/duckduckgo-search` and `research/searxng-search`
+- `dashboard` -> Kanban orchestration skills
+- `mcp` -> `mcp/native-mcp`, `mcp/fastmcp`, and `mcp/mcporter`
+
+Useful discovery/install examples:
+
+```bash
+hermes pkg update
+hermes pkg search github-pr-workflow
+hermes pkg show skills-dev-core
+hermes pkg install skills-dev-core --yes
+
+hermes pkg search spotify
+hermes pkg show spotify
+hermes pkg install spotify --yes
+```

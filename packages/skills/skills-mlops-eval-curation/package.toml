@@ -1,0 +1,59 @@
+schema_version = 1
+name = "skills-mlops-eval-curation"
+display_name = "MLOps Evaluation and Curation Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party model evaluation, experiment tracking, and data curation skills for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-mlops-eval-curation.tar.gz", format = "tar.gz", sha256 = "3ffa2196a4ed93cf29843621135a869a39643333040d927831dfbc37ec6e0f81", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "3ffa2196a4ed93cf29843621135a869a39643333040d927831dfbc37ec6e0f81"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "mlops/evaluation/lm-evaluation-harness",
+  "mlops/evaluation/weights-and-biases",
+  "mlops/huggingface-tokenizers",
+  "mlops/nemo-curator",
+  "mlops/research/dspy",
+  "mlops/saelens",
+]

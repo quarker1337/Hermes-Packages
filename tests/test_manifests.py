@@ -30,12 +30,23 @@ def test_optional_skill_category_packages_ship_skill_pack_assets():
     index = build_index(ROOT)
     expected = {
         "skills-agent-clis",
+        "skills-apple-macos",
         "skills-creative",
         "skills-dev-core",
+        "skills-devops",
+        "skills-finance",
         "skills-hermes-maintainer",
         "skills-mlops",
+        "skills-mlops-cloud",
+        "skills-mlops-eval-curation",
+        "skills-mlops-inference",
+        "skills-mlops-models",
+        "skills-mlops-training",
+        "skills-mlops-vector-db",
+        "skills-media",
         "skills-productivity",
         "skills-research",
+        "skills-security-osint",
     }
 
     assert expected <= set(index["packages"])
@@ -169,6 +180,90 @@ def test_first_tranche_skill_packages_advertise_included_skills():
     for package_name, skill_names in expected.items():
         contents = index["packages"][package_name].get("contents", {})
         assert skill_names <= set(contents.get("skills", []))
+
+
+def test_second_wave_skill_packages_advertise_included_skills():
+    index = build_index(ROOT)
+    expected = {
+        "skills-apple-macos": {
+            "apple/apple-notes",
+            "apple/apple-reminders",
+            "apple/macos-computer-use",
+        },
+        "skills-media": {
+            "media/spotify",
+            "media/youtube-content",
+            "media/gif-search",
+        },
+        "skills-finance": {
+            "finance/3-statement-model",
+            "finance/dcf-model",
+            "finance/stocks",
+        },
+        "skills-devops": {
+            "devops/docker-management",
+            "devops/pinggy-tunnel",
+            "devops/webhook-subscriptions",
+        },
+        "skills-security-osint": {
+            "security/1password",
+            "security/oss-forensics",
+            "research/osint-investigation",
+        },
+        "skills-mlops-training": {
+            "mlops/training/axolotl",
+            "mlops/training/trl-fine-tuning",
+            "mlops/training/unsloth",
+        },
+        "skills-mlops-inference": {
+            "mlops/inference/vllm",
+            "mlops/inference/outlines",
+            "mlops/tensorrt-llm",
+        },
+        "skills-mlops-vector-db": {
+            "mlops/chroma",
+            "mlops/faiss",
+            "mlops/qdrant",
+        },
+        "skills-mlops-cloud": {
+            "mlops/lambda-labs",
+            "mlops/modal",
+        },
+        "skills-mlops-models": {
+            "mlops/clip",
+            "mlops/llava",
+            "mlops/stable-diffusion",
+        },
+        "skills-mlops-eval-curation": {
+            "mlops/evaluation/lm-evaluation-harness",
+            "mlops/nemo-curator",
+            "mlops/huggingface-tokenizers",
+        },
+    }
+
+    for package_name, skill_names in expected.items():
+        contents = index["packages"][package_name].get("contents", {})
+        assert skill_names <= set(contents.get("skills", []))
+
+
+def test_tool_packages_advertise_attached_integration_skills():
+    index = build_index(ROOT)
+    expected = {
+        "spotify": {"media/spotify"},
+        "homeassistant": {"smart-home/openhue"},
+        "web-search": {"research/duckduckgo-search", "research/searxng-search"},
+        "mcp": {"mcp/native-mcp", "mcp/fastmcp", "mcp/mcporter"},
+    }
+
+    for package_name, skill_names in expected.items():
+        package = index["packages"][package_name]
+        contents = package.get("contents", {})
+        assert skill_names <= set(contents.get("skills", []))
+        skill_assets = [
+            asset for asset in package["install"]["optional_assets"]
+            if isinstance(asset, dict) and asset.get("type") == "skill_pack"
+        ]
+        assert skill_assets, f"{package_name} should install its attached skills"
 
 
 def test_official_packages_do_not_enable_post_install_scripts():

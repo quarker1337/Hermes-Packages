@@ -4,7 +4,7 @@ display_name = "Home Assistant"
 version = "0.1.0"
 type = "toolset"
 channel = "official"
-description = "Smart-home controls through Home Assistant."
+description = "Smart-home controls through Home Assistant plus the matching OpenHue workflow skill."
 license = "MIT"
 maintainer = "NanoHermes"
 dependencies = []
@@ -18,7 +18,9 @@ python_extras = ["homeassistant"]
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-homeassistant.tar.gz", format = "tar.gz", sha256 = "d987c43a44a319a566bd8f7eeb48355e11499be0cbce3234dd3a11737faa59ef", destination = "skills", overwrite = false },
+]
 
 [tools]
 toolsets = ["homeassistant"]
@@ -26,7 +28,7 @@ tools = []
 
 [permissions]
 network = true
-filesystem = false
+filesystem = true
 shell = false
 browser = false
 audio = false
@@ -42,6 +44,11 @@ commands = []
 python_imports = []
 
 [security]
-checksum = ""
+checksum = "d987c43a44a319a566bd8f7eeb48355e11499be0cbce3234dd3a11737faa59ef"
 signed = false
 post_install_scripts = false
+
+[contents]
+skills = [
+  "smart-home/openhue",
+]

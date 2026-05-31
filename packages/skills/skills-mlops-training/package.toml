@@ -1,0 +1,64 @@
+schema_version = 1
+name = "skills-mlops-training"
+display_name = "MLOps Training Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party MLOps training, fine-tuning, and distributed training skills for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-mlops-training.tar.gz", format = "tar.gz", sha256 = "2017dd892fd01d5c1e469dad49f002dc3a1dde3a0a1b0c45d2311cfce67d71bf", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "2017dd892fd01d5c1e469dad49f002dc3a1dde3a0a1b0c45d2311cfce67d71bf"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "mlops/accelerate",
+  "mlops/flash-attention",
+  "mlops/peft",
+  "mlops/pytorch-fsdp",
+  "mlops/pytorch-lightning",
+  "mlops/simpo",
+  "mlops/slime",
+  "mlops/torchtitan",
+  "mlops/training/axolotl",
+  "mlops/training/trl-fine-tuning",
+  "mlops/training/unsloth",
+]

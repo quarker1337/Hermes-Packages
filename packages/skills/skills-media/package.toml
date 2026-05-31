@@ -1,0 +1,58 @@
+schema_version = 1
+name = "skills-media"
+display_name = "Media Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party media workflow skills for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-media.tar.gz", format = "tar.gz", sha256 = "331f38bf652c8eb8ddc8b4c3eaaa957e74361c9de56af570f1381fdfe0fd3e3e", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "331f38bf652c8eb8ddc8b4c3eaaa957e74361c9de56af570f1381fdfe0fd3e3e"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "media/gif-search",
+  "media/heartmula",
+  "media/songsee",
+  "media/spotify",
+  "media/youtube-content",
+]

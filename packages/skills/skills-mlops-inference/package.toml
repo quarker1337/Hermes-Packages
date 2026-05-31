@@ -1,0 +1,60 @@
+schema_version = 1
+name = "skills-mlops-inference"
+display_name = "MLOps Inference Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party MLOps inference, serving, structured-output, and optimization skills for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-mlops-inference.tar.gz", format = "tar.gz", sha256 = "48685b18f4d38ee6fa3a69cf008fc291a86ff5d171642feb91bfd202cf296e8e", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "48685b18f4d38ee6fa3a69cf008fc291a86ff5d171642feb91bfd202cf296e8e"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "mlops/guidance",
+  "mlops/instructor",
+  "mlops/inference/llama-cpp",
+  "mlops/inference/obliteratus",
+  "mlops/inference/outlines",
+  "mlops/inference/vllm",
+  "mlops/tensorrt-llm",
+]

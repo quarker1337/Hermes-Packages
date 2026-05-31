@@ -1,0 +1,58 @@
+schema_version = 1
+name = "skills-devops"
+display_name = "DevOps Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party DevOps, container, tunnel, and watcher workflow skills for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-devops.tar.gz", format = "tar.gz", sha256 = "8d8846a39452bc9c2ba7ad69bd6a0c5b6c6a9d2dbd84ebfd2d4bf91afcdd9dd6", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "8d8846a39452bc9c2ba7ad69bd6a0c5b6c6a9d2dbd84ebfd2d4bf91afcdd9dd6"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "devops/cli",
+  "devops/docker-management",
+  "devops/pinggy-tunnel",
+  "devops/watchers",
+  "devops/webhook-subscriptions",
+]

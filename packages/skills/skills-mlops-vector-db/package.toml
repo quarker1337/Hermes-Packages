@@ -1,0 +1,57 @@
+schema_version = 1
+name = "skills-mlops-vector-db"
+display_name = "MLOps Vector Database Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party vector database and similarity-search skills for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-mlops-vector-db.tar.gz", format = "tar.gz", sha256 = "a83b206bb7c398990b67c2f735699d93ea7aa78477b3ff90ae3609455ccd12cf", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "a83b206bb7c398990b67c2f735699d93ea7aa78477b3ff90ae3609455ccd12cf"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "mlops/chroma",
+  "mlops/faiss",
+  "mlops/pinecone",
+  "mlops/qdrant",
+]

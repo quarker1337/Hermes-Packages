@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T18:59:27.853122+00:00",
-  "package_count": 26,
+  "generated_at": "2026-05-31T20:18:25.464235+00:00",
+  "package_count": 38,
   "packages": {
     "browser": {
       "channel": "official",
@@ -679,8 +679,13 @@
         "commands": [],
         "python_imports": []
       },
+      "contents": {
+        "skills": [
+          "smart-home/openhue"
+        ]
+      },
       "dependencies": [],
-      "description": "Smart-home controls through Home Assistant.",
+      "description": "Smart-home controls through Home Assistant plus the matching OpenHue workflow skill.",
       "display_name": "Home Assistant",
       "env": {
         "optional": [
@@ -691,7 +696,16 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "d987c43a44a319a566bd8f7eeb48355e11499be0cbce3234dd3a11737faa59ef",
+            "source": "assets/skills/skills-homeassistant.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
         "python_extras": [
           "homeassistant"
         ],
@@ -701,7 +715,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/homeassistant/package.toml",
-      "manifest_sha256": "e1c7eb08ced7c5c077e1e859e67c6094e202800e1bcf1b0f08532ff8ac183475",
+      "manifest_sha256": "6b21ab62f598e2aae17a209d8561ca1e04a9ef0619019097764d102def49305b",
       "name": "homeassistant",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -710,7 +724,7 @@
       "permissions": {
         "audio": false,
         "browser": false,
-        "filesystem": false,
+        "filesystem": true,
         "microphone": false,
         "network": true,
         "secrets": [],
@@ -718,7 +732,7 @@
       },
       "schema_version": 1,
       "security": {
-        "checksum": "",
+        "checksum": "d987c43a44a319a566bd8f7eeb48355e11499be0cbce3234dd3a11737faa59ef",
         "post_install_scripts": false,
         "signed": false
       },
@@ -842,6 +856,73 @@
         "toolsets": []
       },
       "type": "toolset",
+      "version": "0.1.0"
+    },
+    "mcp": {
+      "channel": "mcp",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "mcp/native-mcp",
+          "mcp/fastmcp",
+          "mcp/mcporter"
+        ]
+      },
+      "dependencies": [],
+      "description": "MCP server development and bridge workflow skills for NanoHermes.",
+      "display_name": "MCP Workflows",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "98b3058b545f8a802b6175dcd6faf434ffceb6e2aea27f7db63acde2682d7780",
+            "source": "assets/skills/skills-mcp.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/mcp/mcp/package.toml",
+      "manifest_sha256": "6576dff472f0100136a938391f2753558b11a3de39224356a92efb2a0eeac6c7",
+      "name": "mcp",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": true
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "98b3058b545f8a802b6175dcd6faf434ffceb6e2aea27f7db63acde2682d7780",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "mcp",
       "version": "0.1.0"
     },
     "memory-plugins": {
@@ -969,6 +1050,75 @@
       "schema_version": 1,
       "security": {
         "checksum": "b3e8763a437746eed2fe4b057f2a609061cbe6411711d224109fc84c99c2395e",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-apple-macos": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "apple/apple-notes",
+          "apple/apple-reminders",
+          "apple/findmy",
+          "apple/imessage",
+          "apple/macos-computer-use"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party Apple and macOS workflow skills for NanoHermes.",
+      "display_name": "Apple/macOS Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "30643be1ae0bf41397f05cffca42e1cba91f07e85b56d69d0b3ddcea456bb3e6",
+            "source": "assets/skills/skills-apple-macos.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-apple-macos/package.toml",
+      "manifest_sha256": "bccf9eef71228681fffcc039d3933c473f2a0e0805adc66c00a8bcc169cff474",
+      "name": "skills-apple-macos",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "30643be1ae0bf41397f05cffca42e1cba91f07e85b56d69d0b3ddcea456bb3e6",
         "post_install_scripts": false,
         "signed": false
       },
@@ -1120,6 +1270,147 @@
       "type": "skill",
       "version": "0.1.0"
     },
+    "skills-devops": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "devops/cli",
+          "devops/docker-management",
+          "devops/pinggy-tunnel",
+          "devops/watchers",
+          "devops/webhook-subscriptions"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party DevOps, container, tunnel, and watcher workflow skills for NanoHermes.",
+      "display_name": "DevOps Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "8d8846a39452bc9c2ba7ad69bd6a0c5b6c6a9d2dbd84ebfd2d4bf91afcdd9dd6",
+            "source": "assets/skills/skills-devops.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-devops/package.toml",
+      "manifest_sha256": "e2720b01986b70aa5178710cef978e62d38637c355fa7d4a15c6ec8e52d0ad7b",
+      "name": "skills-devops",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "8d8846a39452bc9c2ba7ad69bd6a0c5b6c6a9d2dbd84ebfd2d4bf91afcdd9dd6",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-finance": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "finance/3-statement-model",
+          "finance/comps-analysis",
+          "finance/dcf-model",
+          "finance/excel-author",
+          "finance/lbo-model",
+          "finance/merger-model",
+          "finance/pptx-author",
+          "finance/stocks"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party finance modeling and market workflow skills for NanoHermes.",
+      "display_name": "Finance Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "ea62d9ff4382ecac7352b4b1a069ee4da89b99c559b6929f52493d43cee0ecfe",
+            "source": "assets/skills/skills-finance.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-finance/package.toml",
+      "manifest_sha256": "17a1a74588c188f87242a6064f0a81f9f48f50bb26814d2149a955e20f7b2d40",
+      "name": "skills-finance",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "ea62d9ff4382ecac7352b4b1a069ee4da89b99c559b6929f52493d43cee0ecfe",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
     "skills-hermes-maintainer": {
       "channel": "skills",
       "checks": {
@@ -1191,6 +1482,75 @@
       "type": "skill",
       "version": "0.1.0"
     },
+    "skills-media": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "media/gif-search",
+          "media/heartmula",
+          "media/songsee",
+          "media/spotify",
+          "media/youtube-content"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party media workflow skills for NanoHermes.",
+      "display_name": "Media Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "331f38bf652c8eb8ddc8b4c3eaaa957e74361c9de56af570f1381fdfe0fd3e3e",
+            "source": "assets/skills/skills-media.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-media/package.toml",
+      "manifest_sha256": "8cee72ba55977c66a18eba6af12a256f0ff4826fc2748a40226acf8c0a472baa",
+      "name": "skills-media",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "331f38bf652c8eb8ddc8b4c3eaaa957e74361c9de56af570f1381fdfe0fd3e3e",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
     "skills-mlops": {
       "channel": "skills",
       "checks": {
@@ -1241,6 +1601,427 @@
       "schema_version": 1,
       "security": {
         "checksum": "a4654cba140332d4b65697a860eed7078f37156ab7cd402ac5f02575717b63b6",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-mlops-cloud": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "mlops/lambda-labs",
+          "mlops/modal"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party GPU cloud and serverless compute skills for NanoHermes.",
+      "display_name": "MLOps Cloud Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "7ffc1efe491a17a10057562fb4caa3234d5248b73bed9f94f913ddbef30c8ec0",
+            "source": "assets/skills/skills-mlops-cloud.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-mlops-cloud/package.toml",
+      "manifest_sha256": "6a71b259bbd28ac35981389eab9cdaf2d0e90c2ec90fd600260cda992cd9ec67",
+      "name": "skills-mlops-cloud",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "7ffc1efe491a17a10057562fb4caa3234d5248b73bed9f94f913ddbef30c8ec0",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-mlops-eval-curation": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "mlops/evaluation/lm-evaluation-harness",
+          "mlops/evaluation/weights-and-biases",
+          "mlops/huggingface-tokenizers",
+          "mlops/nemo-curator",
+          "mlops/research/dspy",
+          "mlops/saelens"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party model evaluation, experiment tracking, and data curation skills for NanoHermes.",
+      "display_name": "MLOps Evaluation and Curation Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "3ffa2196a4ed93cf29843621135a869a39643333040d927831dfbc37ec6e0f81",
+            "source": "assets/skills/skills-mlops-eval-curation.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-mlops-eval-curation/package.toml",
+      "manifest_sha256": "25d9319f8a5fc070425439491747c82fdd3c713eeffdbce0e7300529cb7cb1b7",
+      "name": "skills-mlops-eval-curation",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "3ffa2196a4ed93cf29843621135a869a39643333040d927831dfbc37ec6e0f81",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-mlops-inference": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "mlops/guidance",
+          "mlops/instructor",
+          "mlops/inference/llama-cpp",
+          "mlops/inference/obliteratus",
+          "mlops/inference/outlines",
+          "mlops/inference/vllm",
+          "mlops/tensorrt-llm"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party MLOps inference, serving, structured-output, and optimization skills for NanoHermes.",
+      "display_name": "MLOps Inference Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "48685b18f4d38ee6fa3a69cf008fc291a86ff5d171642feb91bfd202cf296e8e",
+            "source": "assets/skills/skills-mlops-inference.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-mlops-inference/package.toml",
+      "manifest_sha256": "9c848b19524da49fe770598fb2511c0a31f07a54d1372fc77e79e9cc63ec03e8",
+      "name": "skills-mlops-inference",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "48685b18f4d38ee6fa3a69cf008fc291a86ff5d171642feb91bfd202cf296e8e",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-mlops-models": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "mlops/clip",
+          "mlops/huggingface-hub",
+          "mlops/llava",
+          "mlops/models/audiocraft",
+          "mlops/models/segment-anything",
+          "mlops/stable-diffusion",
+          "mlops/whisper"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party model architecture, model hub, and multimodal model skills for NanoHermes.",
+      "display_name": "MLOps Model Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "6b77b416c84324738606b39ed3efe9c7efa7bee240f49d109231377a9073d8ed",
+            "source": "assets/skills/skills-mlops-models.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-mlops-models/package.toml",
+      "manifest_sha256": "be67f8c96ee1df55a3c68d215996b05ad643174ae2dd6c015b5020ef4e5e9629",
+      "name": "skills-mlops-models",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "6b77b416c84324738606b39ed3efe9c7efa7bee240f49d109231377a9073d8ed",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-mlops-training": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "mlops/accelerate",
+          "mlops/flash-attention",
+          "mlops/peft",
+          "mlops/pytorch-fsdp",
+          "mlops/pytorch-lightning",
+          "mlops/simpo",
+          "mlops/slime",
+          "mlops/torchtitan",
+          "mlops/training/axolotl",
+          "mlops/training/trl-fine-tuning",
+          "mlops/training/unsloth"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party MLOps training, fine-tuning, and distributed training skills for NanoHermes.",
+      "display_name": "MLOps Training Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "2017dd892fd01d5c1e469dad49f002dc3a1dde3a0a1b0c45d2311cfce67d71bf",
+            "source": "assets/skills/skills-mlops-training.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-mlops-training/package.toml",
+      "manifest_sha256": "a4c3b868b26dbfd03fb320fb130bd89a7061d2d6736cf669fb72e0e5de871078",
+      "name": "skills-mlops-training",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "2017dd892fd01d5c1e469dad49f002dc3a1dde3a0a1b0c45d2311cfce67d71bf",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-mlops-vector-db": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "mlops/chroma",
+          "mlops/faiss",
+          "mlops/pinecone",
+          "mlops/qdrant"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party vector database and similarity-search skills for NanoHermes.",
+      "display_name": "MLOps Vector Database Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "a83b206bb7c398990b67c2f735699d93ea7aa78477b3ff90ae3609455ccd12cf",
+            "source": "assets/skills/skills-mlops-vector-db.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-mlops-vector-db/package.toml",
+      "manifest_sha256": "cc39a1f613dacbc4071863c3e1c459a7c5beee1986bd0014e0df7f7b5a22f760",
+      "name": "skills-mlops-vector-db",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "a83b206bb7c398990b67c2f735699d93ea7aa78477b3ff90ae3609455ccd12cf",
         "post_install_scripts": false,
         "signed": false
       },
@@ -1371,14 +2152,90 @@
       "type": "skill",
       "version": "0.1.0"
     },
+    "skills-security-osint": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "security/1password",
+          "security/oss-forensics",
+          "security/sherlock",
+          "security/web-pentest",
+          "research/domain-intel",
+          "research/osint-investigation",
+          "red-teaming/godmode"
+        ]
+      },
+      "dependencies": [],
+      "description": "Optional first-party security, forensics, pentest, and OSINT workflow skills for NanoHermes.",
+      "display_name": "Security and OSINT Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "2e57540280252733f98d470dfe7d776c9822170f2f0ef9fe78d2f760d2364ea8",
+            "source": "assets/skills/skills-security-osint.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-security-osint/package.toml",
+      "manifest_sha256": "11b2658080791899ad9c241f6b36042c2f0f2ee5e3aa095252e0878c3075e429",
+      "name": "skills-security-osint",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "2e57540280252733f98d470dfe7d776c9822170f2f0ef9fe78d2f760d2364ea8",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
     "spotify": {
       "channel": "official",
       "checks": {
         "commands": [],
         "python_imports": []
       },
+      "contents": {
+        "skills": [
+          "media/spotify"
+        ]
+      },
       "dependencies": [],
-      "description": "Spotify playback, search, queue, and playlist tools.",
+      "description": "Spotify playback, search, queue, and playlist tools plus the matching Spotify workflow skill.",
       "display_name": "Spotify",
       "env": {
         "optional": [
@@ -1389,7 +2246,16 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "9a993372a7f2e97ad9dbd4c48890a880b1085a9a47372b88e52b72816fce0e3f",
+            "source": "assets/skills/skills-spotify.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
         "python_extras": [
           "spotify"
         ],
@@ -1399,7 +2265,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/spotify/package.toml",
-      "manifest_sha256": "c753d0679d28751c2c67b7e13ea98306b2410e3233ea587a27da5752c53438b3",
+      "manifest_sha256": "75dbcb184df4e01d2506108d5110ecc9fad4ce90cf06ab35983a2cedaf54e6dd",
       "name": "spotify",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -1408,7 +2274,7 @@
       "permissions": {
         "audio": false,
         "browser": false,
-        "filesystem": false,
+        "filesystem": true,
         "microphone": false,
         "network": true,
         "secrets": [],
@@ -1416,7 +2282,7 @@
       },
       "schema_version": 1,
       "security": {
-        "checksum": "",
+        "checksum": "9a993372a7f2e97ad9dbd4c48890a880b1085a9a47372b88e52b72816fce0e3f",
         "post_install_scripts": false,
         "signed": false
       },
@@ -1558,8 +2424,14 @@
         "commands": [],
         "python_imports": []
       },
+      "contents": {
+        "skills": [
+          "research/duckduckgo-search",
+          "research/searxng-search"
+        ]
+      },
       "dependencies": [],
-      "description": "Web search and page extraction tools.",
+      "description": "Web search and page extraction tools plus lightweight web-search workflow skills.",
       "display_name": "Web Search",
       "env": {
         "optional": [
@@ -1571,7 +2443,16 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "e45d0b98baef35ca003eed94186d20b4c4ad54e4fbdf6899336e5f8854bafef0",
+            "source": "assets/skills/skills-web-search.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
         "python_extras": [
           "web-search"
         ],
@@ -1581,7 +2462,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/web-search/package.toml",
-      "manifest_sha256": "6241978e59519f927782154755a228b49859a3d71a57005ecdf3daad7f7412bd",
+      "manifest_sha256": "13657f95d9ba173c008047cc048b7c1bd2700f918d20033fd83927391ffccdda",
       "name": "web-search",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -1590,7 +2471,7 @@
       "permissions": {
         "audio": false,
         "browser": false,
-        "filesystem": false,
+        "filesystem": true,
         "microphone": false,
         "network": true,
         "secrets": [],
@@ -1598,7 +2479,7 @@
       },
       "schema_version": 1,
       "security": {
-        "checksum": "",
+        "checksum": "e45d0b98baef35ca003eed94186d20b4c4ad54e4fbdf6899336e5f8854bafef0",
         "post_install_scripts": false,
         "signed": false
       },

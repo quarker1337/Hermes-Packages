@@ -1,0 +1,58 @@
+schema_version = 1
+name = "skills-apple-macos"
+display_name = "Apple/macOS Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party Apple and macOS workflow skills for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-apple-macos.tar.gz", format = "tar.gz", sha256 = "30643be1ae0bf41397f05cffca42e1cba91f07e85b56d69d0b3ddcea456bb3e6", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "30643be1ae0bf41397f05cffca42e1cba91f07e85b56d69d0b3ddcea456bb3e6"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "apple/apple-notes",
+  "apple/apple-reminders",
+  "apple/findmy",
+  "apple/imessage",
+  "apple/macos-computer-use",
+]

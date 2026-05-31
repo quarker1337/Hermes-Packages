@@ -4,7 +4,7 @@ display_name = "Web Search"
 version = "0.1.0"
 type = "toolset"
 channel = "official"
-description = "Web search and page extraction tools."
+description = "Web search and page extraction tools plus lightweight web-search workflow skills."
 license = "MIT"
 maintainer = "NanoHermes"
 dependencies = []
@@ -18,7 +18,9 @@ python_extras = ["web-search"]
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-web-search.tar.gz", format = "tar.gz", sha256 = "e45d0b98baef35ca003eed94186d20b4c4ad54e4fbdf6899336e5f8854bafef0", destination = "skills", overwrite = false },
+]
 
 [tools]
 toolsets = ["web"]
@@ -26,7 +28,7 @@ tools = ["web_search", "web_extract"]
 
 [permissions]
 network = true
-filesystem = false
+filesystem = true
 shell = false
 browser = false
 audio = false
@@ -42,6 +44,12 @@ commands = []
 python_imports = []
 
 [security]
-checksum = ""
+checksum = "e45d0b98baef35ca003eed94186d20b4c4ad54e4fbdf6899336e5f8854bafef0"
 signed = false
 post_install_scripts = false
+
+[contents]
+skills = [
+  "research/duckduckgo-search",
+  "research/searxng-search",
+]

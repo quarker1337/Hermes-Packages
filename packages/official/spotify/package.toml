@@ -4,7 +4,7 @@ display_name = "Spotify"
 version = "0.1.0"
 type = "toolset"
 channel = "official"
-description = "Spotify playback, search, queue, and playlist tools."
+description = "Spotify playback, search, queue, and playlist tools plus the matching Spotify workflow skill."
 license = "MIT"
 maintainer = "NanoHermes"
 dependencies = []
@@ -18,7 +18,9 @@ python_extras = ["spotify"]
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-spotify.tar.gz", format = "tar.gz", sha256 = "9a993372a7f2e97ad9dbd4c48890a880b1085a9a47372b88e52b72816fce0e3f", destination = "skills", overwrite = false },
+]
 
 [tools]
 toolsets = ["spotify"]
@@ -26,7 +28,7 @@ tools = []
 
 [permissions]
 network = true
-filesystem = false
+filesystem = true
 shell = false
 browser = false
 audio = false
@@ -42,6 +44,11 @@ commands = []
 python_imports = []
 
 [security]
-checksum = ""
+checksum = "9a993372a7f2e97ad9dbd4c48890a880b1085a9a47372b88e52b72816fce0e3f"
 signed = false
 post_install_scripts = false
+
+[contents]
+skills = [
+  "media/spotify",
+]

@@ -1,0 +1,55 @@
+schema_version = 1
+name = "skills-mlops-cloud"
+display_name = "MLOps Cloud Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party GPU cloud and serverless compute skills for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-mlops-cloud.tar.gz", format = "tar.gz", sha256 = "7ffc1efe491a17a10057562fb4caa3234d5248b73bed9f94f913ddbef30c8ec0", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "7ffc1efe491a17a10057562fb4caa3234d5248b73bed9f94f913ddbef30c8ec0"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "mlops/lambda-labs",
+  "mlops/modal",
+]

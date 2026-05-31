@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T14:59:15.640920+00:00",
-  "package_count": 23,
+  "generated_at": "2026-05-31T18:15:39.769684+00:00",
+  "package_count": 26,
   "packages": {
     "browser": {
       "channel": "official",
@@ -293,6 +293,14 @@
             "sha256": "3a973bac59da9ca06bba48a15002a03b4cf2e78ae753c91ff7c6d52bc2c79858",
             "source": "assets/python/dashboard-kanban-plugin.tar.gz",
             "type": "python_module_pack"
+          },
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "02bed93eca5a80c691d387cb125bd5f501edb185f0b9cccde1e543fe7912b6d1",
+            "source": "assets/skills/skills-kanban.tar.gz",
+            "type": "skill_pack"
           }
         ],
         "python_extras": [
@@ -304,7 +312,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/dashboard/package.toml",
-      "manifest_sha256": "818e0c6427ebe8bade5c0f949136bfeaf1d947ae4c52e4eb42f1f89ada9b8a2b",
+      "manifest_sha256": "e4f1de089ecaf581458b29b7c82283c91df3b00f8c0f0fae49a4c9c14e4d809f",
       "name": "dashboard",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -893,6 +901,66 @@
       "type": "plugin",
       "version": "0.1.0"
     },
+    "skills-agent-clis": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [],
+      "description": "Optional first-party skills for delegating work to external autonomous coding CLIs such as Claude Code, Codex, OpenCode, Blackbox, Honcho, and OpenHands.",
+      "display_name": "Agent CLI Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "b3e8763a437746eed2fe4b057f2a609061cbe6411711d224109fc84c99c2395e",
+            "source": "assets/skills/skills-agent-clis.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-agent-clis/package.toml",
+      "manifest_sha256": "688dd31f9a174091a364d1cc01f39d7f570fe7f952f02123ae54cd74abf123d2",
+      "name": "skills-agent-clis",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "b3e8763a437746eed2fe4b057f2a609061cbe6411711d224109fc84c99c2395e",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
     "skills-creative": {
       "channel": "skills",
       "checks": {
@@ -943,6 +1011,126 @@
       "schema_version": 1,
       "security": {
         "checksum": "7779e526f8b847fba2d2c64b2518d0e3f440e862a550239fe0c68ab862736ab2",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-dev-core": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [],
+      "description": "Optional first-party developer workflow skills for NanoHermes: planning, debugging, testing, code review, and GitHub workflows.",
+      "display_name": "Developer Core Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "b6838b728054483b87a2874b71f93f722429f7173a74dca60b7cdf5e4b582c07",
+            "source": "assets/skills/skills-dev-core.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-dev-core/package.toml",
+      "manifest_sha256": "97c684d09b5d4c447ff99063f1b362b64a51ac4f3ce4b9b7732d28153b91a9ce",
+      "name": "skills-dev-core",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "b6838b728054483b87a2874b71f93f722429f7173a74dca60b7cdf5e4b582c07",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
+      "version": "0.1.0"
+    },
+    "skills-hermes-maintainer": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [],
+      "description": "Optional first-party skills for maintaining Hermes Agent and NanoHermes internals.",
+      "display_name": "Hermes Maintainer Skills",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab",
+            "source": "assets/skills/skills-hermes-maintainer.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/skills-hermes-maintainer/package.toml",
+      "manifest_sha256": "95d7d0c11e5568e4cb4dff9bdecf9aa608296929dcddcd0437753d3208885dd1",
+      "name": "skills-hermes-maintainer",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab",
         "post_install_scripts": false,
         "signed": false
       },

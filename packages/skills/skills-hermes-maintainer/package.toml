@@ -1,0 +1,49 @@
+schema_version = 1
+name = "skills-hermes-maintainer"
+display_name = "Hermes Maintainer Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party skills for maintaining Hermes Agent and NanoHermes internals."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-hermes-maintainer.tar.gz", format = "tar.gz", sha256 = "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab"
+signed = false
+post_install_scripts = false

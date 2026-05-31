@@ -22,6 +22,7 @@ optional_assets = [
   { type = "python_module_pack", source = "assets/python/dashboard-hermes-cli.tar.gz", format = "tar.gz", destination = "python-site-packages/hermes_cli" },
   { type = "python_module_pack", source = "assets/python/dashboard-tools.tar.gz", format = "tar.gz", destination = "python-site-packages/tools" },
   { type = "python_module_pack", source = "assets/python/dashboard-kanban-plugin.tar.gz", format = "tar.gz", destination = "python-site-packages/plugins/kanban" },
+  { type = "skill_pack", source = "assets/skills/skills-kanban.tar.gz", format = "tar.gz", sha256 = "02bed93eca5a80c691d387cb125bd5f501edb185f0b9cccde1e543fe7912b6d1", destination = "skills", overwrite = false },
 ]
 
 [tools]

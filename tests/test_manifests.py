@@ -28,7 +28,15 @@ def test_expected_bootstrap_packages_exist():
 
 def test_optional_skill_category_packages_ship_skill_pack_assets():
     index = build_index(ROOT)
-    expected = {"skills-creative", "skills-mlops", "skills-productivity", "skills-research"}
+    expected = {
+        "skills-agent-clis",
+        "skills-creative",
+        "skills-dev-core",
+        "skills-hermes-maintainer",
+        "skills-mlops",
+        "skills-productivity",
+        "skills-research",
+    }
 
     assert expected <= set(index["packages"])
     for package_name in expected:
@@ -60,6 +68,7 @@ def test_dashboard_package_bundles_kanban_python_assets():
         "python-site-packages/hermes_cli",
         "python-site-packages/tools",
         "python-site-packages/plugins/kanban",
+        "skills",
     }
     for destination, asset in by_destination.items():
         if destination.startswith("python-site-packages/"):
@@ -67,6 +76,15 @@ def test_dashboard_package_bundles_kanban_python_assets():
             assert asset["format"] == "tar.gz"
             assert asset["source"].startswith("assets/python/")
             assert len(asset["sha256"]) == 64
+
+    skill_asset = next(
+        asset for asset in assets
+        if isinstance(asset, dict) and asset.get("source") == "assets/skills/skills-kanban.tar.gz"
+    )
+    assert skill_asset["type"] == "skill_pack"
+    assert skill_asset["destination"] == "skills"
+    assert skill_asset["format"] == "tar.gz"
+    assert len(skill_asset["sha256"]) == 64
 
 
 def test_china_provider_and_gateway_packages_ship_python_assets():

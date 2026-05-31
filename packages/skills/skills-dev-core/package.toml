@@ -1,0 +1,49 @@
+schema_version = 1
+name = "skills-dev-core"
+display_name = "Developer Core Skills"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Optional first-party developer workflow skills for NanoHermes: planning, debugging, testing, code review, and GitHub workflows."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-dev-core.tar.gz", format = "tar.gz", sha256 = "b6838b728054483b87a2874b71f93f722429f7173a74dca60b7cdf5e4b582c07", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "b6838b728054483b87a2874b71f93f722429f7173a74dca60b7cdf5e4b582c07"
+signed = false
+post_install_scripts = false

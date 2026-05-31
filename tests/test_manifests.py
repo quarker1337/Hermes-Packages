@@ -16,6 +16,21 @@ def test_all_manifests_load_and_match_paths():
         assert data["channel"] == manifest.parts[-3]
 
 
+def test_optional_assets_are_structured_archive_descriptors():
+    index = build_index(ROOT)
+    for package in index["packages"].values():
+        assets = package["install"].get("optional_assets", [])
+        for asset in assets:
+            assert isinstance(asset, dict), (
+                f"{package['name']} optional_assets entries must be archive descriptors, "
+                f"not legacy marker values: {asset!r}"
+            )
+            assert asset.get("type") in {"skill_pack", "python_module_pack"}
+            assert asset.get("source")
+            assert asset.get("destination")
+            assert asset.get("format") in {"tar.gz", "zip"}
+
+
 def test_expected_bootstrap_packages_exist():
     index = build_index(ROOT)
     expected = {
@@ -264,6 +279,47 @@ def test_tool_packages_advertise_attached_integration_skills():
             if isinstance(asset, dict) and asset.get("type") == "skill_pack"
         ]
         assert skill_assets, f"{package_name} should install its attached skills"
+
+
+def test_profile_bundle_packages_define_install_recipes():
+    index = build_index(ROOT)
+    expected_dependencies = {
+        "profile-developer": [
+            "skills-dev-core",
+            "web-search",
+            "browser",
+        ],
+        "profile-maintainer": [
+            "skills-dev-core",
+            "skills-hermes-maintainer",
+            "skills-agent-clis",
+            "dashboard",
+            "mcp",
+        ],
+        "profile-research": [
+            "skills-research",
+            "web-search",
+            "browser",
+            "skills-productivity",
+        ],
+        "profile-mlops": [
+            "skills-dev-core",
+            "skills-mlops-training",
+            "skills-mlops-inference",
+            "skills-mlops-vector-db",
+            "skills-mlops-cloud",
+            "skills-mlops-models",
+            "skills-mlops-eval-curation",
+        ],
+    }
+
+    for package_name, dependencies in expected_dependencies.items():
+        package = index["packages"][package_name]
+        assert package["type"] == "bundle"
+        assert package["channel"] == "community"
+        assert package["dependencies"] == dependencies
+        assert package["install"]["optional_assets"] == []
+        assert package["security"]["post_install_scripts"] is False
 
 
 def test_official_packages_do_not_enable_post_install_scripts():

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T20:18:25.464235+00:00",
-  "package_count": 38,
+  "generated_at": "2026-05-31T21:25:02.608278+00:00",
+  "package_count": 42,
   "packages": {
     "browser": {
       "channel": "official",
@@ -17,9 +17,7 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [
-          "playwright-chromium"
-        ],
+        "optional_assets": [],
         "python_extras": [
           "browser"
         ],
@@ -29,7 +27,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/browser/package.toml",
-      "manifest_sha256": "74db90d41a79d8af6aafcfcf23eac169b82703838df75ae3e1f7dda5200f1c75",
+      "manifest_sha256": "ce4a50d00f4369417e1e797c5a63a2ee5e86236a8ff7b455190ef13cf43a3dbe",
       "name": "browser",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -988,6 +986,233 @@
         "toolsets": []
       },
       "type": "plugin",
+      "version": "0.1.0"
+    },
+    "profile-developer": {
+      "channel": "community",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [
+        "skills-dev-core",
+        "web-search",
+        "browser"
+      ],
+      "description": "Meta package for a coding agent: developer workflow skills plus web and browser tools.",
+      "display_name": "Developer Profile",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/community/profile-developer/package.toml",
+      "manifest_sha256": "c007e4179b5164b655458b2c1f97699d93a6019ad9dc04a67a511babcf936622",
+      "name": "profile-developer",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": true,
+        "filesystem": true,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "bundle",
+      "version": "0.1.0"
+    },
+    "profile-maintainer": {
+      "channel": "community",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [
+        "skills-dev-core",
+        "skills-hermes-maintainer",
+        "skills-agent-clis",
+        "dashboard",
+        "mcp"
+      ],
+      "description": "Meta package for maintaining NanoHermes/Hermes: dev core, maintainer workflows, agent CLIs, dashboard, and MCP skills.",
+      "display_name": "Maintainer Profile",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/community/profile-maintainer/package.toml",
+      "manifest_sha256": "2b9ff9c20c1464cad96bd5a4837967e80dc88e99632afe7cca9311ad16c2a534",
+      "name": "profile-maintainer",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": true
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "bundle",
+      "version": "0.1.0"
+    },
+    "profile-mlops": {
+      "channel": "community",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [
+        "skills-dev-core",
+        "skills-mlops-training",
+        "skills-mlops-inference",
+        "skills-mlops-vector-db",
+        "skills-mlops-cloud",
+        "skills-mlops-models",
+        "skills-mlops-eval-curation"
+      ],
+      "description": "Meta package for an MLOps agent: developer core plus split training, inference, vector DB, cloud, model, and eval/curation skills.",
+      "display_name": "MLOps Profile",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/community/profile-mlops/package.toml",
+      "manifest_sha256": "ef62e8214094e1ff8b413e25832e782c67adbcab5cb46ec014fc40b1b00d60b2",
+      "name": "profile-mlops",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": true,
+        "microphone": false,
+        "network": false,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "bundle",
+      "version": "0.1.0"
+    },
+    "profile-research": {
+      "channel": "community",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [
+        "skills-research",
+        "web-search",
+        "browser",
+        "skills-productivity"
+      ],
+      "description": "Meta package for a research agent: research/productivity skills plus web and browser tools.",
+      "display_name": "Research Profile",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/community/profile-research/package.toml",
+      "manifest_sha256": "992175085ccdd52ab6a2ec5db1ed2d85df9e87b1397ee300db101766283c3560",
+      "name": "profile-research",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": true,
+        "filesystem": true,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "bundle",
       "version": "0.1.0"
     },
     "skills-agent-clis": {

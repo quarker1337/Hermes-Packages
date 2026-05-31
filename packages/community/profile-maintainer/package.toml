@@ -1,0 +1,47 @@
+schema_version = 1
+name = "profile-maintainer"
+display_name = "Maintainer Profile"
+version = "0.1.0"
+type = "bundle"
+channel = "community"
+description = "Meta package for maintaining NanoHermes/Hermes: dev core, maintainer workflows, agent CLIs, dashboard, and MCP skills."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = ["skills-dev-core", "skills-hermes-maintainer", "skills-agent-clis", "dashboard", "mcp"]
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = true
+filesystem = true
+shell = true
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

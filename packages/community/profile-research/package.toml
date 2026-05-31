@@ -1,32 +1,32 @@
 schema_version = 1
-name = "browser"
-display_name = "Browser Automation"
+name = "profile-research"
+display_name = "Research Profile"
 version = "0.1.0"
-type = "toolset"
-channel = "official"
-description = "Browser automation tools and local/managed browser backends."
+type = "bundle"
+channel = "community"
+description = "Meta package for a research agent: research/productivity skills plus web and browser tools."
 license = "MIT"
 maintainer = "NanoHermes"
-dependencies = []
+dependencies = ["skills-research", "web-search", "browser", "skills-productivity"]
 
 [nanohermes]
-min_version = "0.1.0"
+min_version = "0.15.1"
 max_version = "<1.0.0"
 
 [install]
-python_extras = ["browser"]
+python_extras = []
 python_packages = []
 system_packages = []
 npm_packages = []
 optional_assets = []
 
 [tools]
-toolsets = ["browser"]
-tools = ["browser_navigate", "browser_click", "browser_type"]
+toolsets = []
+tools = []
 
 [permissions]
 network = true
-filesystem = false
+filesystem = true
 shell = false
 browser = true
 audio = false

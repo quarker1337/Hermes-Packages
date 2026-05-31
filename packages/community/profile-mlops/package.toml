@@ -1,0 +1,47 @@
+schema_version = 1
+name = "profile-mlops"
+display_name = "MLOps Profile"
+version = "0.1.0"
+type = "bundle"
+channel = "community"
+description = "Meta package for an MLOps agent: developer core plus split training, inference, vector DB, cloud, model, and eval/curation skills."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = ["skills-dev-core", "skills-mlops-training", "skills-mlops-inference", "skills-mlops-vector-db", "skills-mlops-cloud", "skills-mlops-models", "skills-mlops-eval-curation"]
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = []
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = false
+filesystem = true
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

@@ -1,0 +1,49 @@
+schema_version = 1
+name = "china-model-providers"
+display_name = "China Model Providers"
+version = "0.1.0"
+type = "provider"
+channel = "official"
+description = "Optional China-region model provider plugin profiles for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = []
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "python_module_pack", source = "assets/python/china-model-providers.tar.gz", format = "tar.gz", destination = "python-site-packages/plugins", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = true
+filesystem = false
+shell = false
+browser = false
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = ["QWEN_API_KEY", "DEEPSEEK_API_KEY", "ALIBABA_API_KEY", "MINIMAX_API_KEY", "KIMI_API_KEY"]
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

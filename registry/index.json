@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T14:23:11.633857+00:00",
-  "package_count": 19,
+  "generated_at": "2026-05-31T14:45:38.002575+00:00",
+  "package_count": 21,
   "packages": {
     "browser": {
       "channel": "official",
@@ -61,6 +61,141 @@
         ]
       },
       "type": "toolset",
+      "version": "0.1.0"
+    },
+    "china-gateway-platforms": {
+      "channel": "official",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [
+        "gateway"
+      ],
+      "description": "Optional China-region gateway platform adapters for NanoHermes.",
+      "display_name": "China Gateway Platforms",
+      "env": {
+        "optional": [
+          "DINGTALK_CLIENT_ID",
+          "DINGTALK_CLIENT_SECRET",
+          "WECOM_CORP_ID",
+          "WECOM_SECRET",
+          "WEIXIN_APP_ID",
+          "QQBOT_APP_ID"
+        ],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/gateway/platforms",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "9168bde0b69b70149d75fdf6247f39c7c70d48128bf298af55630ffa640624a4",
+            "source": "assets/python/china-gateway-platforms.tar.gz",
+            "type": "python_module_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/official/china-gateway-platforms/package.toml",
+      "manifest_sha256": "6ae5ec5532537251eb2f48a3da3d68ad9d1dd6f3909e33ffb8dfe6a4ba0ccf7b",
+      "name": "china-gateway-platforms",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": false,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "plugin",
+      "version": "0.1.0"
+    },
+    "china-model-providers": {
+      "channel": "official",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [],
+      "description": "Optional China-region model provider plugin profiles for NanoHermes.",
+      "display_name": "China Model Providers",
+      "env": {
+        "optional": [
+          "QWEN_API_KEY",
+          "DEEPSEEK_API_KEY",
+          "ALIBABA_API_KEY",
+          "MINIMAX_API_KEY",
+          "KIMI_API_KEY"
+        ],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/plugins",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "6624d33f8df82ad44bcf424f386f04d9918a584b463ece007e1064f4f488d209",
+            "source": "assets/python/china-model-providers.tar.gz",
+            "type": "python_module_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/official/china-model-providers/package.toml",
+      "manifest_sha256": "9b54df3199b76b291b5e50d0dc1c35bf1bee07a37113da2b119eb7c90fd296ff",
+      "name": "china-model-providers",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": false,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "provider",
       "version": "0.1.0"
     },
     "cron": {
@@ -337,7 +472,16 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/gateway/platforms",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "d53001e448f18c626ed64f262a975582dd55d6ee26d5923de3d8ad8314448281",
+            "source": "assets/python/feishu-gateway-platforms.tar.gz",
+            "type": "python_module_pack"
+          }
+        ],
         "python_extras": [
           "feishu"
         ],
@@ -347,7 +491,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/feishu/package.toml",
-      "manifest_sha256": "0008041df1c8007c1549599f599297dace3403d420609784401b8b89bfb7c11e",
+      "manifest_sha256": "9cab2e9a5cef5768d429cdcd696b482b1486510600c2af106366feed399c245e",
       "name": "feishu",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -1119,6 +1263,14 @@
             "sha256": "789f655b73027276e90a4beaa9f6ad6cd3e53d98cfa2ee096ed6836fbeb704f5",
             "source": "assets/skills/skills-yuanbao.tar.gz",
             "type": "skill_pack"
+          },
+          {
+            "destination": "python-site-packages/gateway/platforms",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "786f215959e3c453ae293c95c7a87fd1c1563f47aee226e1f7c3f012616d735d",
+            "source": "assets/python/yuanbao-gateway-platforms.tar.gz",
+            "type": "python_module_pack"
           }
         ],
         "python_extras": [
@@ -1130,7 +1282,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/yuanbao/package.toml",
-      "manifest_sha256": "2260e8d8408c7069e1710be0b2a090ad4f376c2d6cb2145e0bd8883e8a527a06",
+      "manifest_sha256": "ec93bcda5190314c1e9e8e5b4bd21e220b6bf940a3b841a478c7e2831602696f",
       "name": "yuanbao",
       "nanohermes": {
         "max_version": "<1.0.0",

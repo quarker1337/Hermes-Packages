@@ -18,7 +18,9 @@ python_extras = ["feishu"]
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "python_module_pack", source = "assets/python/feishu-gateway-platforms.tar.gz", format = "tar.gz", destination = "python-site-packages/gateway/platforms", overwrite = false },
+]
 
 [tools]
 toolsets = ["feishu_doc", "feishu_drive"]

@@ -20,6 +20,7 @@ system_packages = []
 npm_packages = []
 optional_assets = [
   { type = "skill_pack", source = "assets/skills/skills-yuanbao.tar.gz", format = "tar.gz", destination = "skills", overwrite = false },
+  { type = "python_module_pack", source = "assets/python/yuanbao-gateway-platforms.tar.gz", format = "tar.gz", destination = "python-site-packages/gateway/platforms", overwrite = false },
 ]
 
 [tools]

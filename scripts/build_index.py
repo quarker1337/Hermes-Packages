@@ -21,7 +21,7 @@ REQUIRED_TOP_LEVEL = {
 }
 VALID_CHANNELS = {"official", "skills", "mcp", "community"}
 VALID_TYPES = {"toolset", "skill", "mcp", "provider", "bundle", "plugin"}
-ASSET_DESTINATION_ROOTS = {"skills", "optional-skills", "optional-mcps"}
+ASSET_DESTINATION_ROOTS = {"skills", "optional-skills", "optional-mcps", "python-site-packages"}
 
 
 def sha256_file(path: Path) -> str:
@@ -76,6 +76,10 @@ def normalize_optional_assets(package: dict, manifest_path: Path, root: Path) ->
             allowed = ", ".join(sorted(ASSET_DESTINATION_ROOTS))
             raise ValueError(
                 f"{manifest_path}: optional asset destination must start with one of: {allowed}"
+            )
+        if destination_root == "python-site-packages" and "/" not in destination.replace("\\", "/"):
+            raise ValueError(
+                f"{manifest_path}: python-site-packages asset destination must include a package subdirectory"
             )
         asset_path = root / source
         if not asset_path.is_file():

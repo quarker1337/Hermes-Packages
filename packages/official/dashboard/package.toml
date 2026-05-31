@@ -4,7 +4,7 @@ display_name = "Local Web Dashboard"
 version = "0.1.0"
 type = "toolset"
 channel = "official"
-description = "Local web UI/API dashboard dependencies."
+description = "Local web UI/API dashboard plus tightly integrated Kanban dispatcher."
 license = "MIT"
 maintainer = "NanoHermes"
 dependencies = []
@@ -18,16 +18,20 @@ python_extras = ["dashboard"]
 python_packages = []
 system_packages = []
 npm_packages = ["dashboard-frontend"]
-optional_assets = []
+optional_assets = [
+  { type = "python_module_pack", source = "assets/python/dashboard-hermes-cli.tar.gz", format = "tar.gz", destination = "python-site-packages/hermes_cli" },
+  { type = "python_module_pack", source = "assets/python/dashboard-tools.tar.gz", format = "tar.gz", destination = "python-site-packages/tools" },
+  { type = "python_module_pack", source = "assets/python/dashboard-kanban-plugin.tar.gz", format = "tar.gz", destination = "python-site-packages/plugins/kanban" },
+]
 
 [tools]
-toolsets = []
+toolsets = ["kanban"]
 tools = []
 
 [permissions]
 network = true
-filesystem = false
-shell = false
+filesystem = true
+shell = true
 browser = false
 audio = false
 microphone = false

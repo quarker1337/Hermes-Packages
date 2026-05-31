@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T09:21:43.345948+00:00",
+  "generated_at": "2026-05-31T10:02:39.007379+00:00",
   "package_count": 19,
   "packages": {
     "browser": {
@@ -127,7 +127,7 @@
         "python_imports": []
       },
       "dependencies": [],
-      "description": "Local web UI/API dashboard dependencies.",
+      "description": "Local web UI/API dashboard plus tightly integrated Kanban dispatcher.",
       "display_name": "Local Web Dashboard",
       "env": {
         "optional": [],
@@ -137,7 +137,29 @@
         "npm_packages": [
           "dashboard-frontend"
         ],
-        "optional_assets": [],
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/hermes_cli",
+            "format": "tar.gz",
+            "sha256": "f0ea099113d377eae6d1da21911a377e25fc2a7bbb294c8d26852f4402f26141",
+            "source": "assets/python/dashboard-hermes-cli.tar.gz",
+            "type": "python_module_pack"
+          },
+          {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "186d2fba6fbca34786c3517aa06c9ff760bbcc3c2860811e86674cdc0b8ce8fa",
+            "source": "assets/python/dashboard-tools.tar.gz",
+            "type": "python_module_pack"
+          },
+          {
+            "destination": "python-site-packages/plugins/kanban",
+            "format": "tar.gz",
+            "sha256": "3a973bac59da9ca06bba48a15002a03b4cf2e78ae753c91ff7c6d52bc2c79858",
+            "source": "assets/python/dashboard-kanban-plugin.tar.gz",
+            "type": "python_module_pack"
+          }
+        ],
         "python_extras": [
           "dashboard"
         ],
@@ -147,7 +169,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/dashboard/package.toml",
-      "manifest_sha256": "310c25a7291e9b43fc2ce22c62127808f3f43833d134ed432e56198149f1365c",
+      "manifest_sha256": "818e0c6427ebe8bade5c0f949136bfeaf1d947ae4c52e4eb42f1f89ada9b8a2b",
       "name": "dashboard",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -156,11 +178,11 @@
       "permissions": {
         "audio": false,
         "browser": false,
-        "filesystem": false,
+        "filesystem": true,
         "microphone": false,
         "network": true,
         "secrets": [],
-        "shell": false
+        "shell": true
       },
       "schema_version": 1,
       "security": {
@@ -170,7 +192,9 @@
       },
       "tools": {
         "tools": [],
-        "toolsets": []
+        "toolsets": [
+          "kanban"
+        ]
       },
       "type": "toolset",
       "version": "0.1.0"
@@ -537,8 +561,10 @@
         "commands": [],
         "python_imports": []
       },
-      "dependencies": [],
-      "description": "Kanban board dispatcher and worker plugin.",
+      "dependencies": [
+        "dashboard"
+      ],
+      "description": "Compatibility package for Kanban; installs the dashboard bundle that currently owns Kanban.",
       "display_name": "Kanban Multi-Agent Dispatcher",
       "env": {
         "optional": [],
@@ -554,7 +580,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/kanban/package.toml",
-      "manifest_sha256": "60d7f470c2ee2d77dcf89d9bd964b009de40959d7dbeba6ba5f6b94345675e45",
+      "manifest_sha256": "f86b0af201bb698d03ba94c95ac99654d4e2c770dce2de275a07ea2b4e8c7e59",
       "name": "kanban",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -577,9 +603,7 @@
       },
       "tools": {
         "tools": [],
-        "toolsets": [
-          "kanban"
-        ]
+        "toolsets": []
       },
       "type": "toolset",
       "version": "0.1.0"

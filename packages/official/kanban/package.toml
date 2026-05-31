@@ -4,10 +4,10 @@ display_name = "Kanban Multi-Agent Dispatcher"
 version = "0.1.0"
 type = "toolset"
 channel = "official"
-description = "Kanban board dispatcher and worker plugin."
+description = "Compatibility package for Kanban; installs the dashboard bundle that currently owns Kanban."
 license = "MIT"
 maintainer = "NanoHermes"
-dependencies = []
+dependencies = ["dashboard"]
 
 [nanohermes]
 min_version = "0.1.0"
@@ -21,7 +21,7 @@ npm_packages = []
 optional_assets = []
 
 [tools]
-toolsets = ["kanban"]
+toolsets = []
 tools = []
 
 [permissions]

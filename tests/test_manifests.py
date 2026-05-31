@@ -45,6 +45,30 @@ def test_optional_skill_category_packages_ship_skill_pack_assets():
         assert len(asset["sha256"]) == 64
 
 
+def test_dashboard_package_bundles_kanban_python_assets():
+    index = build_index(ROOT)
+    dashboard = index["packages"]["dashboard"]
+    kanban = index["packages"]["kanban"]
+
+    assert dashboard["tools"]["toolsets"] == ["kanban"]
+    assert kanban["dependencies"] == ["dashboard"]
+    assert kanban["tools"]["toolsets"] == []
+
+    assets = dashboard["install"]["optional_assets"]
+    by_destination = {asset["destination"]: asset for asset in assets if isinstance(asset, dict)}
+    assert set(by_destination) >= {
+        "python-site-packages/hermes_cli",
+        "python-site-packages/tools",
+        "python-site-packages/plugins/kanban",
+    }
+    for destination, asset in by_destination.items():
+        if destination.startswith("python-site-packages/"):
+            assert asset["type"] == "python_module_pack"
+            assert asset["format"] == "tar.gz"
+            assert asset["source"].startswith("assets/python/")
+            assert len(asset["sha256"]) == 64
+
+
 def test_official_packages_do_not_enable_post_install_scripts():
     index = build_index(ROOT)
     for package in index["packages"].values():

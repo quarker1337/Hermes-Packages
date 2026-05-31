@@ -1,29 +1,29 @@
 schema_version = 1
-name = "discord"
-display_name = "Discord Gateway"
+name = "extra-platform-plugins"
+display_name = "Extra Platform Plugins"
 version = "0.1.0"
-type = "toolset"
+type = "plugin"
 channel = "official"
-description = "Discord messaging platform adapter."
+description = "Optional non-core messaging platform plugin adapters for NanoHermes."
 license = "MIT"
 maintainer = "NanoHermes"
 dependencies = ["gateway"]
 
 [nanohermes]
-min_version = "0.1.0"
+min_version = "0.15.1"
 max_version = "<1.0.0"
 
 [install]
-python_extras = ["discord"]
+python_extras = []
 python_packages = []
 system_packages = []
 npm_packages = []
 optional_assets = [
-  { type = "python_module_pack", source = "assets/python/discord-platform-plugin.tar.gz", format = "tar.gz", destination = "python-site-packages/plugins/platforms", overwrite = false },
+  { type = "python_module_pack", source = "assets/python/extra-platform-plugins.tar.gz", format = "tar.gz", destination = "python-site-packages/plugins/platforms", overwrite = false },
 ]
 
 [tools]
-toolsets = ["discord"]
+toolsets = []
 tools = []
 
 [permissions]
@@ -37,7 +37,7 @@ secrets = []
 
 [env]
 required = []
-optional = ["DISCORD_BOT_TOKEN"]
+optional = ["GOOGLE_CHAT_WEBHOOK", "LINE_CHANNEL_ACCESS_TOKEN", "MATTERMOST_TOKEN", "TEAMS_WEBHOOK_URL"]
 
 [checks]
 commands = []

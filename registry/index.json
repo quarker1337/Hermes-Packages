@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T14:45:38.002575+00:00",
-  "package_count": 21,
+  "generated_at": "2026-05-31T14:59:15.640920+00:00",
+  "package_count": 23,
   "packages": {
     "browser": {
       "channel": "official",
@@ -353,7 +353,16 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/plugins/platforms",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "e650e4443452fc1d4ac85e435bfd288353c499af79959b5b1bfefbc17ad719cc",
+            "source": "assets/python/discord-platform-plugin.tar.gz",
+            "type": "python_module_pack"
+          }
+        ],
         "python_extras": [
           "discord"
         ],
@@ -363,7 +372,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/discord/package.toml",
-      "manifest_sha256": "7d302fff886f1dc0696a6c9c53ca19427d83337a0c8c34bc373a332498188519",
+      "manifest_sha256": "17f662c717c457e004d53d8663f8644d85aac09a0af422c63b516bf2b4b843df",
       "name": "discord",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -450,6 +459,73 @@
         ]
       },
       "type": "toolset",
+      "version": "0.1.0"
+    },
+    "extra-platform-plugins": {
+      "channel": "official",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [
+        "gateway"
+      ],
+      "description": "Optional non-core messaging platform plugin adapters for NanoHermes.",
+      "display_name": "Extra Platform Plugins",
+      "env": {
+        "optional": [
+          "GOOGLE_CHAT_WEBHOOK",
+          "LINE_CHANNEL_ACCESS_TOKEN",
+          "MATTERMOST_TOKEN",
+          "TEAMS_WEBHOOK_URL"
+        ],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/plugins/platforms",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "d40d40ce1db5ffd65e1df7a1fa4c6ec6717aacb9c0581a9a93a4d29ee5e61af5",
+            "source": "assets/python/extra-platform-plugins.tar.gz",
+            "type": "python_module_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/official/extra-platform-plugins/package.toml",
+      "manifest_sha256": "81a79bb166470bcb7667c0195c7e3aa7a7bcd2dd016c07d8e8158745e1135371",
+      "name": "extra-platform-plugins",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": false,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "plugin",
       "version": "0.1.0"
     },
     "feishu": {
@@ -750,6 +826,71 @@
         "toolsets": []
       },
       "type": "toolset",
+      "version": "0.1.0"
+    },
+    "memory-plugins": {
+      "channel": "official",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "dependencies": [],
+      "description": "Optional third-party memory provider plugins for NanoHermes.",
+      "display_name": "Memory Plugins",
+      "env": {
+        "optional": [
+          "HONCHO_API_KEY",
+          "MEM0_API_KEY",
+          "SUPERMEMORY_API_KEY",
+          "BYTEROVER_API_KEY"
+        ],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/plugins/memory",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "4f2bc75038a00d43d827dca6b1787050760e2066dd19010659756b9f033f3552",
+            "source": "assets/python/memory-plugins.tar.gz",
+            "type": "python_module_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/official/memory-plugins/package.toml",
+      "manifest_sha256": "ab843f2db393346b9139d0973093c04c8824c4b9722d12820f015145c738fb1b",
+      "name": "memory-plugins",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": false,
+        "filesystem": false,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "plugin",
       "version": "0.1.0"
     },
     "skills-creative": {

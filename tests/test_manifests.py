@@ -92,6 +92,37 @@ def test_china_provider_and_gateway_packages_ship_python_assets():
     assert len(provider_assets[0]["sha256"]) == 64
 
 
+def test_optional_platform_and_memory_packages_ship_python_assets():
+    index = build_index(ROOT)
+
+    discord = index["packages"]["discord"]
+    discord_assets = discord["install"]["optional_assets"]
+    assert len(discord_assets) == 1
+    assert discord_assets[0]["type"] == "python_module_pack"
+    assert discord_assets[0]["destination"] == "python-site-packages/plugins/platforms"
+    assert discord_assets[0]["source"] == "assets/python/discord-platform-plugin.tar.gz"
+    assert len(discord_assets[0]["sha256"]) == 64
+
+    extra_platforms = index["packages"]["extra-platform-plugins"]
+    assert extra_platforms["type"] == "plugin"
+    assert extra_platforms["dependencies"] == ["gateway"]
+    platform_assets = extra_platforms["install"]["optional_assets"]
+    assert len(platform_assets) == 1
+    assert platform_assets[0]["type"] == "python_module_pack"
+    assert platform_assets[0]["destination"] == "python-site-packages/plugins/platforms"
+    assert platform_assets[0]["source"] == "assets/python/extra-platform-plugins.tar.gz"
+    assert len(platform_assets[0]["sha256"]) == 64
+
+    memory = index["packages"]["memory-plugins"]
+    assert memory["type"] == "plugin"
+    memory_assets = memory["install"]["optional_assets"]
+    assert len(memory_assets) == 1
+    assert memory_assets[0]["type"] == "python_module_pack"
+    assert memory_assets[0]["destination"] == "python-site-packages/plugins/memory"
+    assert memory_assets[0]["source"] == "assets/python/memory-plugins.tar.gz"
+    assert len(memory_assets[0]["sha256"]) == 64
+
+
 def test_official_packages_do_not_enable_post_install_scripts():
     index = build_index(ROOT)
     for package in index["packages"].values():

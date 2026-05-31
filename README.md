@@ -51,21 +51,24 @@ python -m pytest tests/ -q
 
 ## Skill pack assets
 
-Large first-party skill categories are shipped as package assets instead of
-being bundled into every NanoHermes wheel. A skill-pack manifest points to a
-tarball under `assets/skills/` with an explicit SHA-256:
+Packages can bundle skills by declaring archive-backed assets under
+`install.optional_assets`. Large first-party skill categories are shipped this
+way instead of being bundled into every NanoHermes wheel.
 
 ```toml
+[install]
 optional_assets = [
   { type = "skill_pack", source = "assets/skills/skills-creative.tar.gz", format = "tar.gz", sha256 = "...", destination = "skills", overwrite = false },
 ]
 ```
 
 `hermes pkg install ...` resolves relative asset paths from this registry,
-verifies the checksum, rejects unsafe archive members, and extracts into the
-active Hermes home.
+verifies the checksum, rejects unsafe archive members, and extracts into
+`$HERMES_HOME/skills`. This lets tool packages and standalone skill packages
+ship matching procedural memory without bloating the NanoHermes base wheel.
 
 ## Current status
 
 Bootstrap registry with official toolset packages plus first-party skill-pack
-assets. Manifests are schema-checked and indexed by `scripts/build_index.py`.
+assets. Manifests and optional skill-pack assets are schema-checked and indexed
+for the NanoHermes package-manager client.

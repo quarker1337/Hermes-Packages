@@ -21,6 +21,7 @@ REQUIRED_TOP_LEVEL = {
 }
 VALID_CHANNELS = {"official", "skills", "mcp", "community"}
 VALID_TYPES = {"toolset", "skill", "mcp", "provider", "bundle", "plugin"}
+ASSET_DESTINATION_ROOTS = {"skills", "optional-skills", "optional-mcps"}
 
 
 def sha256_file(path: Path) -> str:
@@ -47,6 +48,48 @@ def load_manifest(path: Path) -> dict:
     return data
 
 
+def normalize_optional_assets(package: dict, manifest_path: Path, root: Path) -> dict:
+    install = package.get("install")
+    if not isinstance(install, dict):
+        return package
+    assets = install.get("optional_assets", [])
+    if not assets:
+        return package
+
+    normalized_assets = []
+    for asset in assets:
+        if not isinstance(asset, dict):
+            # Legacy symbolic assets (for example browser runtime payloads) are
+            # kept as-is until those installers become first-class package
+            # assets. Archive-backed skill packs use dict entries below.
+            normalized_assets.append(asset)
+            continue
+        asset = dict(asset)
+        source = str(asset.get("source", "")).strip()
+        destination = str(asset.get("destination", "")).strip()
+        if not source:
+            raise ValueError(f"{manifest_path}: optional asset missing source")
+        if not destination:
+            raise ValueError(f"{manifest_path}: optional asset missing destination")
+        destination_root = destination.replace("\\", "/").split("/", 1)[0]
+        if destination_root not in ASSET_DESTINATION_ROOTS:
+            allowed = ", ".join(sorted(ASSET_DESTINATION_ROOTS))
+            raise ValueError(
+                f"{manifest_path}: optional asset destination must start with one of: {allowed}"
+            )
+        asset_path = root / source
+        if not asset_path.is_file():
+            raise ValueError(f"{manifest_path}: optional asset source does not exist: {source}")
+        if not str(asset.get("sha256", "")).strip():
+            asset["sha256"] = sha256_file(asset_path)
+        normalized_assets.append(asset)
+
+    package = dict(package)
+    package["install"] = dict(install)
+    package["install"]["optional_assets"] = normalized_assets
+    return package
+
+
 def build_index(root: Path = ROOT) -> dict:
     manifests = sorted(root.glob("packages/*/*/package.toml"))
     packages: dict[str, dict] = {}
@@ -57,6 +100,7 @@ def build_index(root: Path = ROOT) -> dict:
             raise ValueError(f"duplicate package name: {name}")
         rel = manifest_path.relative_to(root).as_posix()
         data = dict(data)
+        data = normalize_optional_assets(data, manifest_path, root)
         data["manifest_path"] = rel
         data["manifest_sha256"] = sha256_file(manifest_path)
         packages[name] = data

@@ -26,6 +26,25 @@ def test_expected_bootstrap_packages_exist():
     assert expected <= set(index["packages"])
 
 
+def test_optional_skill_category_packages_ship_skill_pack_assets():
+    index = build_index(ROOT)
+    expected = {"skills-creative", "skills-mlops", "skills-productivity", "skills-research"}
+
+    assert expected <= set(index["packages"])
+    for package_name in expected:
+        package = index["packages"][package_name]
+        assets = package["install"]["optional_assets"]
+        assert package["type"] == "skill"
+        assert package["channel"] == "skills"
+        assert len(assets) == 1
+        asset = assets[0]
+        assert asset["type"] == "skill_pack"
+        assert asset["format"] == "tar.gz"
+        assert asset["destination"] == "skills"
+        assert asset["source"].startswith("assets/skills/")
+        assert len(asset["sha256"]) == 64
+
+
 def test_official_packages_do_not_enable_post_install_scripts():
     index = build_index(ROOT)
     for package in index["packages"].values():

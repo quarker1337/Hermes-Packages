@@ -79,6 +79,22 @@ def test_optional_skill_category_packages_ship_skill_pack_assets():
         assert len(asset["sha256"]) == 64
 
 
+def test_browser_package_bundles_browser_python_assets():
+    index = build_index(ROOT)
+    browser = index["packages"]["browser"]
+
+    assert browser["tools"]["toolsets"] == ["browser"]
+    assert browser["install"]["python_extras"] == []
+    assets = browser["install"]["optional_assets"]
+    assert len(assets) == 1
+    asset = assets[0]
+    assert asset["type"] == "python_module_pack"
+    assert asset["destination"] == "python-site-packages/tools"
+    assert asset["source"] == "assets/python/browser-tools.tar.gz"
+    assert asset["format"] == "tar.gz"
+    assert len(asset["sha256"]) == 64
+
+
 def test_dashboard_package_bundles_kanban_python_assets():
     index = build_index(ROOT)
     dashboard = index["packages"]["dashboard"]

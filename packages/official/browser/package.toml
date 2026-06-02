@@ -14,11 +14,13 @@ min_version = "0.1.0"
 max_version = "<1.0.0"
 
 [install]
-python_extras = ["browser"]
+python_extras = []
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "python_module_pack", source = "assets/python/browser-tools.tar.gz", format = "tar.gz", sha256 = "3d8c74f67399df8e8758639c118dbc73f8180870f212c43310e613524f1600bc", destination = "python-site-packages/tools" },
+]
 
 [tools]
 toolsets = ["browser"]

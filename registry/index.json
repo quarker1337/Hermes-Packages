@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T21:25:02.608278+00:00",
+  "generated_at": "2026-06-02T17:09:08.479464+00:00",
   "package_count": 42,
   "packages": {
     "browser": {
@@ -17,17 +17,23 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
-        "python_extras": [
-          "browser"
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "3d8c74f67399df8e8758639c118dbc73f8180870f212c43310e613524f1600bc",
+            "source": "assets/python/browser-tools.tar.gz",
+            "type": "python_module_pack"
+          }
         ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/browser/package.toml",
-      "manifest_sha256": "ce4a50d00f4369417e1e797c5a63a2ee5e86236a8ff7b455190ef13cf43a3dbe",
+      "manifest_sha256": "8f74e56bccd1fdc74f7b23e0ff77db88f4cc44ffbf1a7fd9740397be50f837d8",
       "name": "browser",
       "nanohermes": {
         "max_version": "<1.0.0",

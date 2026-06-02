@@ -19,7 +19,7 @@ python_packages = []
 system_packages = []
 npm_packages = []
 optional_assets = [
-  { type = "skill_pack", source = "assets/skills/skills-hermes-maintainer.tar.gz", format = "tar.gz", sha256 = "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab", destination = "skills", overwrite = false },
+  { type = "skill_pack", source = "assets/skills/skills-hermes-maintainer.tar.gz", format = "tar.gz", sha256 = "eb7d629052d83fe2a989ea33303359cfa1edc5837b4ad8b99f61964047943d22", destination = "skills", overwrite = false },
 ]
 
 [contents]
@@ -28,6 +28,7 @@ skills = [
   "software-development/hermes-agent-skill-authoring",
   "software-development/debugging-hermes-tui-commands",
   "software-development/hermes-s6-container-supervision",
+  "software-development/nanohermes-upstream-sync",
   "devops/webhook-subscriptions",
   "mcp/native-mcp",
   "migration/openclaw-migration",
@@ -55,6 +56,6 @@ commands = []
 python_imports = []
 
 [security]
-checksum = "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab"
+checksum = "eb7d629052d83fe2a989ea33303359cfa1edc5837b4ad8b99f61964047943d22"
 signed = false
 post_install_scripts = false

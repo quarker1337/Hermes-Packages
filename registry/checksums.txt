@@ -24,7 +24,7 @@ bccf9eef71228681fffcc039d3933c473f2a0e0805adc66c00a8bcc169cff474  packages/skill
 aa1d01d39c7f35e872dde91265ad10951f2e58232ec588ac204f783abf0bd7e5  packages/skills/skills-dev-core/package.toml  # skills-dev-core
 e2720b01986b70aa5178710cef978e62d38637c355fa7d4a15c6ec8e52d0ad7b  packages/skills/skills-devops/package.toml  # skills-devops
 17a1a74588c188f87242a6064f0a81f9f48f50bb26814d2149a955e20f7b2d40  packages/skills/skills-finance/package.toml  # skills-finance
-313ccfb050ac28feac5b4b89d6b4662db1a5fbab6dfb051ea39fa6aa6f954b5e  packages/skills/skills-hermes-maintainer/package.toml  # skills-hermes-maintainer
+2b93fc4750d961e79cac8edc68cee67b589a02495fac314141c5ebcb19c0ffeb  packages/skills/skills-hermes-maintainer/package.toml  # skills-hermes-maintainer
 8cee72ba55977c66a18eba6af12a256f0ff4826fc2748a40226acf8c0a472baa  packages/skills/skills-media/package.toml  # skills-media
 fb6c3adc903b1eef4dc21acd2e0a1132fa6c7d766e22858c04ffb21224978662  packages/skills/skills-mlops/package.toml  # skills-mlops
 6a71b259bbd28ac35981389eab9cdaf2d0e90c2ec90fd600260cda992cd9ec67  packages/skills/skills-mlops-cloud/package.toml  # skills-mlops-cloud

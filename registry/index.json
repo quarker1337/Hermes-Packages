@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T20:08:52.875655+00:00",
+  "generated_at": "2026-06-02T20:57:41.761291+00:00",
   "package_count": 44,
   "packages": {
     "browser": {
@@ -1737,6 +1737,7 @@
           "software-development/hermes-agent-skill-authoring",
           "software-development/debugging-hermes-tui-commands",
           "software-development/hermes-s6-container-supervision",
+          "software-development/nanohermes-upstream-sync",
           "devops/webhook-subscriptions",
           "mcp/native-mcp",
           "migration/openclaw-migration"
@@ -1756,7 +1757,7 @@
             "destination": "skills",
             "format": "tar.gz",
             "overwrite": false,
-            "sha256": "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab",
+            "sha256": "eb7d629052d83fe2a989ea33303359cfa1edc5837b4ad8b99f61964047943d22",
             "source": "assets/skills/skills-hermes-maintainer.tar.gz",
             "type": "skill_pack"
           }
@@ -1768,7 +1769,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/skills/skills-hermes-maintainer/package.toml",
-      "manifest_sha256": "313ccfb050ac28feac5b4b89d6b4662db1a5fbab6dfb051ea39fa6aa6f954b5e",
+      "manifest_sha256": "2b93fc4750d961e79cac8edc68cee67b589a02495fac314141c5ebcb19c0ffeb",
       "name": "skills-hermes-maintainer",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -1785,7 +1786,7 @@
       },
       "schema_version": 1,
       "security": {
-        "checksum": "e905c39534fb7af5eedd1809acbd42ef69069069d796833e46356c2e33530dab",
+        "checksum": "eb7d629052d83fe2a989ea33303359cfa1edc5837b4ad8b99f61964047943d22",
         "post_install_scripts": false,
         "signed": false
       },

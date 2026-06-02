@@ -229,6 +229,7 @@ def test_first_tranche_skill_packages_advertise_included_skills():
         "skills-hermes-maintainer": {
             "autonomous-ai-agents/hermes-agent",
             "software-development/hermes-agent-skill-authoring",
+            "software-development/nanohermes-upstream-sync",
             "mcp/native-mcp",
         },
         "skills-agent-clis": {

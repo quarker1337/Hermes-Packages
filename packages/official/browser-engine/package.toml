@@ -1,0 +1,48 @@
+schema_version = 1
+name = "browser-engine"
+display_name = "Headless Chromium Browser Engine"
+version = "0.1.0"
+type = "bundle"
+channel = "official"
+description = "Explicitly installs the local browser runtime: Node.js, agent-browser, and Chromium/headless-shell for browser automation."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = ["browser"]
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+runtime_dependencies = ["browser"]
+optional_assets = []
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = true
+filesystem = true
+shell = true
+browser = true
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = ["agent-browser"]
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

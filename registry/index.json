@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-02T17:09:08.479464+00:00",
-  "package_count": 42,
+  "generated_at": "2026-06-02T18:12:28.389025+00:00",
+  "package_count": 43,
   "packages": {
     "browser": {
       "channel": "official",
@@ -65,6 +65,64 @@
         ]
       },
       "type": "toolset",
+      "version": "0.1.0"
+    },
+    "browser-engine": {
+      "channel": "official",
+      "checks": {
+        "commands": [
+          "agent-browser"
+        ],
+        "python_imports": []
+      },
+      "dependencies": [
+        "browser"
+      ],
+      "description": "Explicitly installs the local browser runtime: Node.js, agent-browser, and Chromium/headless-shell for browser automation.",
+      "display_name": "Headless Chromium Browser Engine",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [],
+        "python_extras": [],
+        "python_packages": [],
+        "runtime_dependencies": [
+          "browser"
+        ],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/official/browser-engine/package.toml",
+      "manifest_sha256": "cc0df1e83e9acb3c76cd4b466df432077878320416237e82a0613ceb7cc817ea",
+      "name": "browser-engine",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.1.0"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": true,
+        "filesystem": true,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": true
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "bundle",
       "version": "0.1.0"
     },
     "china-gateway-platforms": {

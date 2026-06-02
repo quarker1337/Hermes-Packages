@@ -34,7 +34,7 @@ def test_optional_assets_are_structured_archive_descriptors():
 def test_expected_bootstrap_packages_exist():
     index = build_index(ROOT)
     expected = {
-        "web-search", "browser", "dashboard", "tts", "voice", "image-gen",
+        "web-search", "browser", "browser-engine", "dashboard", "tts", "voice", "image-gen",
         "gateway", "cron", "kanban", "discord", "discord-admin", "yuanbao",
         "feishu", "spotify", "homeassistant",
     }
@@ -85,6 +85,7 @@ def test_browser_package_bundles_browser_python_assets():
 
     assert browser["tools"]["toolsets"] == ["browser"]
     assert browser["install"]["python_extras"] == []
+    assert browser["install"].get("runtime_dependencies", []) == []
     assets = browser["install"]["optional_assets"]
     assert len(assets) == 1
     asset = assets[0]
@@ -93,6 +94,18 @@ def test_browser_package_bundles_browser_python_assets():
     assert asset["source"] == "assets/python/browser-tools.tar.gz"
     assert asset["format"] == "tar.gz"
     assert len(asset["sha256"]) == 64
+
+
+def test_browser_engine_package_explicitly_installs_runtime_dependency():
+    index = build_index(ROOT)
+    engine = index["packages"]["browser-engine"]
+
+    assert engine["type"] == "bundle"
+    assert engine["dependencies"] == ["browser"]
+    assert engine["tools"]["toolsets"] == []
+    assert engine["install"]["runtime_dependencies"] == ["browser"]
+    assert engine["install"]["optional_assets"] == []
+    assert engine["security"]["post_install_scripts"] is False
 
 
 def test_dashboard_package_bundles_kanban_python_assets():

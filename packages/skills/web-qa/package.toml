@@ -1,0 +1,54 @@
+schema_version = 1
+name = "web-qa"
+display_name = "Web QA / Dogfood Skill"
+version = "0.1.0"
+type = "skill"
+channel = "skills"
+description = "Exploratory web-application QA workflow skill for browser-based dogfooding: interaction passes, console checks, evidence capture, and structured bug reports."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = ["browser"]
+
+[nanohermes]
+min_version = "0.15.1"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = []
+optional_assets = [
+  { type = "skill_pack", source = "assets/skills/skills-web-qa.tar.gz", format = "tar.gz", sha256 = "b98003ec07fe70fe926d9768232bf3cf99f02d4a1ae1b28b673d30581d036971", destination = "skills", overwrite = false },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = true
+filesystem = true
+shell = false
+browser = true
+audio = false
+microphone = false
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = []
+python_imports = []
+
+[security]
+checksum = "b98003ec07fe70fe926d9768232bf3cf99f02d4a1ae1b28b673d30581d036971"
+signed = false
+post_install_scripts = false
+
+[contents]
+skills = [
+  "dogfood",
+]

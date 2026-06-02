@@ -4,7 +4,7 @@ display_name = "Browser Automation"
 version = "0.1.0"
 type = "toolset"
 channel = "official"
-description = "Browser automation tools and local/managed browser backends. Includes web-search because the historical browser toolset exposed web_search for URL discovery."
+description = "Browser automation tools and local/managed browser backends, plus the generic browser automation workflow skill. Includes web-search because the historical browser toolset exposed web_search for URL discovery."
 license = "MIT"
 maintainer = "NanoHermes"
 dependencies = ["web-search"]
@@ -20,6 +20,7 @@ system_packages = []
 npm_packages = []
 optional_assets = [
   { type = "python_module_pack", source = "assets/python/browser-tools.tar.gz", format = "tar.gz", sha256 = "3d8c74f67399df8e8758639c118dbc73f8180870f212c43310e613524f1600bc", destination = "python-site-packages/tools" },
+  { type = "skill_pack", source = "assets/skills/skills-browser-workflow.tar.gz", format = "tar.gz", sha256 = "4b026258a024f618c4586c70b8f4e1bccfff8b545e7caf03b3121c85d919b04a", destination = "skills", overwrite = false },
 ]
 
 [tools]
@@ -61,3 +62,8 @@ python_imports = []
 checksum = ""
 signed = false
 post_install_scripts = false
+
+[contents]
+skills = [
+  "software-development/browser-automation-workflow",
+]

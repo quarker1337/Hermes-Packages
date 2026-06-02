@@ -77,6 +77,8 @@ Integration packages can attach matching skills directly:
 - `spotify` -> `media/spotify`
 - `homeassistant` -> `smart-home/openhue`
 - `web-search` -> lightweight `research/duckduckgo-search` and `research/searxng-search`
+- `browser` -> generic `software-development/browser-automation-workflow`
+- `web-qa` -> browser-dependent `dogfood` exploratory QA workflow
 - `dashboard` -> Kanban orchestration skills
 - `mcp` -> `mcp/native-mcp`, `mcp/fastmcp`, and `mcp/mcporter`
 

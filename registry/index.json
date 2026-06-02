@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-02T18:45:34.691846+00:00",
-  "package_count": 43,
+  "generated_at": "2026-06-02T20:08:52.875655+00:00",
+  "package_count": 44,
   "packages": {
     "browser": {
       "channel": "official",
@@ -8,10 +8,15 @@
         "commands": [],
         "python_imports": []
       },
+      "contents": {
+        "skills": [
+          "software-development/browser-automation-workflow"
+        ]
+      },
       "dependencies": [
         "web-search"
       ],
-      "description": "Browser automation tools and local/managed browser backends. Includes web-search because the historical browser toolset exposed web_search for URL discovery.",
+      "description": "Browser automation tools and local/managed browser backends, plus the generic browser automation workflow skill. Includes web-search because the historical browser toolset exposed web_search for URL discovery.",
       "display_name": "Browser Automation",
       "env": {
         "optional": [],
@@ -26,6 +31,14 @@
             "sha256": "3d8c74f67399df8e8758639c118dbc73f8180870f212c43310e613524f1600bc",
             "source": "assets/python/browser-tools.tar.gz",
             "type": "python_module_pack"
+          },
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "4b026258a024f618c4586c70b8f4e1bccfff8b545e7caf03b3121c85d919b04a",
+            "source": "assets/skills/skills-browser-workflow.tar.gz",
+            "type": "skill_pack"
           }
         ],
         "python_extras": [],
@@ -35,7 +48,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/browser/package.toml",
-      "manifest_sha256": "b32015b515efd97a573ce765a30bc87921082c4b5dd960aa0ef5aa76bfa80244",
+      "manifest_sha256": "5c9d2ef06e96b0231f7f75b7210946f50830dfc0352c8a8390096ccb4b8f37cd",
       "name": "browser",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -2717,6 +2730,73 @@
         ]
       },
       "type": "toolset",
+      "version": "0.1.0"
+    },
+    "web-qa": {
+      "channel": "skills",
+      "checks": {
+        "commands": [],
+        "python_imports": []
+      },
+      "contents": {
+        "skills": [
+          "dogfood"
+        ]
+      },
+      "dependencies": [
+        "browser"
+      ],
+      "description": "Exploratory web-application QA workflow skill for browser-based dogfooding: interaction passes, console checks, evidence capture, and structured bug reports.",
+      "display_name": "Web QA / Dogfood Skill",
+      "env": {
+        "optional": [],
+        "required": []
+      },
+      "install": {
+        "npm_packages": [],
+        "optional_assets": [
+          {
+            "destination": "skills",
+            "format": "tar.gz",
+            "overwrite": false,
+            "sha256": "b98003ec07fe70fe926d9768232bf3cf99f02d4a1ae1b28b673d30581d036971",
+            "source": "assets/skills/skills-web-qa.tar.gz",
+            "type": "skill_pack"
+          }
+        ],
+        "python_extras": [],
+        "python_packages": [],
+        "system_packages": []
+      },
+      "license": "MIT",
+      "maintainer": "NanoHermes",
+      "manifest_path": "packages/skills/web-qa/package.toml",
+      "manifest_sha256": "3bc69e3b6c500c34cd90bb8563d8db399d48becf06cf4f8c5d1c82dc00cc1d9b",
+      "name": "web-qa",
+      "nanohermes": {
+        "max_version": "<1.0.0",
+        "min_version": "0.15.1"
+      },
+      "permissions": {
+        "audio": false,
+        "browser": true,
+        "filesystem": true,
+        "microphone": false,
+        "network": true,
+        "secrets": [],
+        "shell": false
+      },
+      "schema_version": 1,
+      "security": {
+        "checksum": "b98003ec07fe70fe926d9768232bf3cf99f02d4a1ae1b28b673d30581d036971",
+        "post_install_scripts": false,
+        "signed": false
+      },
+      "tools": {
+        "tools": [],
+        "toolsets": []
+      },
+      "type": "skill",
       "version": "0.1.0"
     },
     "web-search": {

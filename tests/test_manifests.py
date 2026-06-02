@@ -103,13 +103,19 @@ def test_browser_package_bundles_browser_python_assets():
     assert browser["install"]["python_extras"] == []
     assert browser["install"].get("runtime_dependencies", []) == []
     assets = browser["install"]["optional_assets"]
-    assert len(assets) == 1
-    asset = assets[0]
-    assert asset["type"] == "python_module_pack"
-    assert asset["destination"] == "python-site-packages/tools"
-    assert asset["source"] == "assets/python/browser-tools.tar.gz"
-    assert asset["format"] == "tar.gz"
-    assert len(asset["sha256"]) == 64
+    by_source = {asset["source"]: asset for asset in assets}
+    module_asset = by_source["assets/python/browser-tools.tar.gz"]
+    assert module_asset["type"] == "python_module_pack"
+    assert module_asset["destination"] == "python-site-packages/tools"
+    assert module_asset["format"] == "tar.gz"
+    assert len(module_asset["sha256"]) == 64
+
+    skill_asset = by_source["assets/skills/skills-browser-workflow.tar.gz"]
+    assert skill_asset["type"] == "skill_pack"
+    assert skill_asset["destination"] == "skills"
+    assert skill_asset["format"] == "tar.gz"
+    assert len(skill_asset["sha256"]) == 64
+    assert "software-development/browser-automation-workflow" in browser["contents"]["skills"]
 
 
 def test_browser_engine_package_explicitly_installs_runtime_dependency():
@@ -312,6 +318,7 @@ def test_tool_packages_advertise_attached_integration_skills():
         "spotify": {"media/spotify"},
         "homeassistant": {"smart-home/openhue"},
         "web-search": {"research/duckduckgo-search", "research/searxng-search"},
+        "browser": {"software-development/browser-automation-workflow"},
         "mcp": {"mcp/native-mcp", "mcp/fastmcp", "mcp/mcporter"},
     }
 
@@ -324,6 +331,26 @@ def test_tool_packages_advertise_attached_integration_skills():
             if isinstance(asset, dict) and asset.get("type") == "skill_pack"
         ]
         assert skill_assets, f"{package_name} should install its attached skills"
+
+
+def test_web_qa_package_installs_dogfood_skill_and_depends_on_browser():
+    index = build_index(ROOT)
+    web_qa = index["packages"]["web-qa"]
+
+    assert web_qa["type"] == "skill"
+    assert web_qa["channel"] == "skills"
+    assert web_qa["dependencies"] == ["browser"]
+    assert web_qa["tools"]["toolsets"] == []
+    assert web_qa["contents"]["skills"] == ["dogfood"]
+
+    assets = web_qa["install"]["optional_assets"]
+    assert len(assets) == 1
+    asset = assets[0]
+    assert asset["type"] == "skill_pack"
+    assert asset["source"] == "assets/skills/skills-web-qa.tar.gz"
+    assert asset["destination"] == "skills"
+    assert asset["format"] == "tar.gz"
+    assert len(asset["sha256"]) == 64
 
 
 def test_profile_bundle_packages_define_install_recipes():

@@ -1,4 +1,4 @@
-b32015b515efd97a573ce765a30bc87921082c4b5dd960aa0ef5aa76bfa80244  packages/official/browser/package.toml  # browser
+5c9d2ef06e96b0231f7f75b7210946f50830dfc0352c8a8390096ccb4b8f37cd  packages/official/browser/package.toml  # browser
 cc0df1e83e9acb3c76cd4b466df432077878320416237e82a0613ceb7cc817ea  packages/official/browser-engine/package.toml  # browser-engine
 6ae5ec5532537251eb2f48a3da3d68ad9d1dd6f3909e33ffb8dfe6a4ba0ccf7b  packages/official/china-gateway-platforms/package.toml  # china-gateway-platforms
 9b54df3199b76b291b5e50d0dc1c35bf1bee07a37113da2b119eb7c90fd296ff  packages/official/china-model-providers/package.toml  # china-model-providers
@@ -39,5 +39,6 @@ ab4eca57a5dc2cfbf39c42d3fa6c49f459403926b547a4f8bc1e2827c32ef6ba  packages/skill
 75dbcb184df4e01d2506108d5110ecc9fad4ce90cf06ab35983a2cedaf54e6dd  packages/official/spotify/package.toml  # spotify
 0463830276ec8b044ed3eca5cd6045a39770c6175f94206886a097e8e52ee082  packages/official/tts/package.toml  # tts
 3e536c9b80357e702164ae08c39d230ce8a3fd543ecd134812dff6b482067e7f  packages/official/voice/package.toml  # voice
+3bc69e3b6c500c34cd90bb8563d8db399d48becf06cf4f8c5d1c82dc00cc1d9b  packages/skills/web-qa/package.toml  # web-qa
 13657f95d9ba173c008047cc048b7c1bd2700f918d20033fd83927391ffccdda  packages/official/web-search/package.toml  # web-search
 ec93bcda5190314c1e9e8e5b4bd21e220b6bf940a3b841a478c7e2831602696f  packages/official/yuanbao/package.toml  # yuanbao

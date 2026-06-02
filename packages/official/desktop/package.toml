@@ -1,0 +1,50 @@
+schema_version = 1
+name = "desktop"
+display_name = "Hermes Desktop"
+version = "0.1.0"
+type = "bundle"
+channel = "official"
+description = "Package-managed Electron desktop app workspace for NanoHermes."
+license = "MIT"
+maintainer = "NanoHermes"
+dependencies = ["dashboard"]
+
+[nanohermes]
+min_version = "0.1.0"
+max_version = "<1.0.0"
+
+[install]
+python_extras = []
+python_packages = []
+system_packages = []
+npm_packages = ["electron workspace dependencies"]
+runtime_dependencies = ["node"]
+optional_assets = [
+  { type = "app_asset", source = "assets/apps/desktop-workspace.tar.gz", format = "tar.gz", destination = "apps/desktop-workspace" },
+]
+
+[tools]
+toolsets = []
+tools = []
+
+[permissions]
+network = true
+filesystem = true
+shell = true
+browser = false
+audio = true
+microphone = true
+secrets = []
+
+[env]
+required = []
+optional = []
+
+[checks]
+commands = ["npm"]
+python_imports = []
+
+[security]
+checksum = ""
+signed = false
+post_install_scripts = false

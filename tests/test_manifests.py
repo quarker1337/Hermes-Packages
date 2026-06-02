@@ -25,7 +25,7 @@ def test_optional_assets_are_structured_archive_descriptors():
                 f"{package['name']} optional_assets entries must be archive descriptors, "
                 f"not legacy marker values: {asset!r}"
             )
-            assert asset.get("type") in {"skill_pack", "python_module_pack"}
+            assert asset.get("type") in {"skill_pack", "python_module_pack", "app_asset"}
             assert asset.get("source")
             assert asset.get("destination")
             assert asset.get("format") in {"tar.gz", "zip"}
@@ -34,7 +34,7 @@ def test_optional_assets_are_structured_archive_descriptors():
 def test_expected_bootstrap_packages_exist():
     index = build_index(ROOT)
     expected = {
-        "web-search", "browser", "browser-engine", "dashboard", "tts", "voice", "image-gen",
+        "web-search", "browser", "browser-engine", "dashboard", "desktop", "tts", "voice", "image-gen",
         "gateway", "cron", "kanban", "discord", "discord-admin", "yuanbao",
         "feishu", "spotify", "homeassistant",
     }
@@ -162,6 +162,28 @@ def test_dashboard_package_bundles_kanban_python_assets():
     assert skill_asset["destination"] == "skills"
     assert skill_asset["format"] == "tar.gz"
     assert len(skill_asset["sha256"]) == 64
+
+
+def test_desktop_package_bundles_app_workspace_assets():
+    index = build_index(ROOT)
+    desktop = index["packages"]["desktop"]
+
+    assert desktop["type"] == "bundle"
+    assert desktop["dependencies"] == ["dashboard"]
+    assert desktop["install"]["python_extras"] == []
+    assert desktop["install"].get("runtime_dependencies", []) == ["node"]
+    assert desktop["install"].get("npm_packages", []) == ["electron workspace dependencies"]
+    assert desktop["tools"]["toolsets"] == []
+    assets = desktop["install"]["optional_assets"]
+    assert len(assets) == 1
+    asset = assets[0]
+    assert asset["type"] == "app_asset"
+    assert asset["source"] == "assets/apps/desktop-workspace.tar.gz"
+    assert asset["destination"] == "apps/desktop-workspace"
+    assert asset["format"] == "tar.gz"
+    assert len(asset["sha256"]) == 64
+    assert desktop["permissions"]["shell"] is True
+    assert desktop["permissions"]["filesystem"] is True
 
 
 def test_china_provider_and_gateway_packages_ship_python_assets():

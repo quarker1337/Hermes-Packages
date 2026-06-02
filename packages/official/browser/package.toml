@@ -4,10 +4,10 @@ display_name = "Browser Automation"
 version = "0.1.0"
 type = "toolset"
 channel = "official"
-description = "Browser automation tools and local/managed browser backends."
+description = "Browser automation tools and local/managed browser backends. Includes web-search because the historical browser toolset exposed web_search for URL discovery."
 license = "MIT"
 maintainer = "NanoHermes"
-dependencies = []
+dependencies = ["web-search"]
 
 [nanohermes]
 min_version = "0.1.0"
@@ -24,7 +24,21 @@ optional_assets = [
 
 [tools]
 toolsets = ["browser"]
-tools = ["browser_navigate", "browser_click", "browser_type"]
+tools = [
+  "browser_navigate",
+  "browser_snapshot",
+  "browser_click",
+  "browser_type",
+  "browser_scroll",
+  "browser_back",
+  "browser_press",
+  "browser_get_images",
+  "browser_vision",
+  "browser_console",
+  "browser_cdp",
+  "browser_dialog",
+  "web_search",
+]
 
 [permissions]
 network = true

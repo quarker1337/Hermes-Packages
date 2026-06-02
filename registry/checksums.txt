@@ -1,4 +1,4 @@
-8f74e56bccd1fdc74f7b23e0ff77db88f4cc44ffbf1a7fd9740397be50f837d8  packages/official/browser/package.toml  # browser
+b32015b515efd97a573ce765a30bc87921082c4b5dd960aa0ef5aa76bfa80244  packages/official/browser/package.toml  # browser
 cc0df1e83e9acb3c76cd4b466df432077878320416237e82a0613ceb7cc817ea  packages/official/browser-engine/package.toml  # browser-engine
 6ae5ec5532537251eb2f48a3da3d68ad9d1dd6f3909e33ffb8dfe6a4ba0ccf7b  packages/official/china-gateway-platforms/package.toml  # china-gateway-platforms
 9b54df3199b76b291b5e50d0dc1c35bf1bee07a37113da2b119eb7c90fd296ff  packages/official/china-model-providers/package.toml  # china-model-providers

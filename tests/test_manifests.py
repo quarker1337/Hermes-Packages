@@ -84,6 +84,22 @@ def test_browser_package_bundles_browser_python_assets():
     browser = index["packages"]["browser"]
 
     assert browser["tools"]["toolsets"] == ["browser"]
+    assert browser["dependencies"] == ["web-search"]
+    assert set(browser["tools"]["tools"]) >= {
+        "browser_navigate",
+        "browser_snapshot",
+        "browser_click",
+        "browser_type",
+        "browser_scroll",
+        "browser_back",
+        "browser_press",
+        "browser_get_images",
+        "browser_vision",
+        "browser_console",
+        "browser_cdp",
+        "browser_dialog",
+        "web_search",
+    }
     assert browser["install"]["python_extras"] == []
     assert browser["install"].get("runtime_dependencies", []) == []
     assets = browser["install"]["optional_assets"]

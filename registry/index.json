@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T18:12:28.389025+00:00",
+  "generated_at": "2026-06-02T18:45:34.691846+00:00",
   "package_count": 43,
   "packages": {
     "browser": {
@@ -8,8 +8,10 @@
         "commands": [],
         "python_imports": []
       },
-      "dependencies": [],
-      "description": "Browser automation tools and local/managed browser backends.",
+      "dependencies": [
+        "web-search"
+      ],
+      "description": "Browser automation tools and local/managed browser backends. Includes web-search because the historical browser toolset exposed web_search for URL discovery.",
       "display_name": "Browser Automation",
       "env": {
         "optional": [],
@@ -33,7 +35,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/browser/package.toml",
-      "manifest_sha256": "8f74e56bccd1fdc74f7b23e0ff77db88f4cc44ffbf1a7fd9740397be50f837d8",
+      "manifest_sha256": "b32015b515efd97a573ce765a30bc87921082c4b5dd960aa0ef5aa76bfa80244",
       "name": "browser",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -57,8 +59,18 @@
       "tools": {
         "tools": [
           "browser_navigate",
+          "browser_snapshot",
           "browser_click",
-          "browser_type"
+          "browser_type",
+          "browser_scroll",
+          "browser_back",
+          "browser_press",
+          "browser_get_images",
+          "browser_vision",
+          "browser_console",
+          "browser_cdp",
+          "browser_dialog",
+          "web_search"
         ],
         "toolsets": [
           "browser"

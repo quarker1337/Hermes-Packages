@@ -171,16 +171,17 @@ def test_desktop_package_bundles_app_workspace_assets():
     assert desktop["type"] == "bundle"
     assert desktop["dependencies"] == ["dashboard"]
     assert desktop["install"]["python_extras"] == []
-    assert desktop["install"].get("runtime_dependencies", []) == ["node"]
-    assert desktop["install"].get("npm_packages", []) == ["electron workspace dependencies"]
+    assert desktop["install"].get("runtime_dependencies", []) == []
+    assert desktop["install"].get("npm_packages", []) == []
+    assert desktop["checks"].get("commands", []) == []
     assert desktop["tools"]["toolsets"] == []
     assets = desktop["install"]["optional_assets"]
     assert len(assets) == 1
     asset = assets[0]
     assert asset["type"] == "app_asset"
-    assert asset["source"] == "assets/apps/desktop-workspace.tar.gz"
+    assert asset["source"] == "assets/apps/desktop-client-linux-x64.tar.xz"
     assert asset["destination"] == "apps/desktop-workspace"
-    assert asset["format"] == "tar.gz"
+    assert asset["format"] == "tar.xz"
     assert len(asset["sha256"]) == 64
     assert desktop["permissions"]["shell"] is True
     assert desktop["permissions"]["filesystem"] is True

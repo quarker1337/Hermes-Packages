@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T11:25:33.985307+00:00",
+  "generated_at": "2026-06-03T13:49:24.481981+00:00",
   "package_count": 46,
   "packages": {
     "browser": {
@@ -440,44 +440,38 @@
     "desktop": {
       "channel": "official",
       "checks": {
-        "commands": [
-          "npm"
-        ],
+        "commands": [],
         "python_imports": []
       },
       "dependencies": [
         "dashboard"
       ],
-      "description": "Package-managed Electron desktop app workspace for NanoHermes.",
+      "description": "Package-managed prebuilt Electron desktop app for NanoHermes.",
       "display_name": "Hermes Desktop",
       "env": {
         "optional": [],
         "required": []
       },
       "install": {
-        "npm_packages": [
-          "electron workspace dependencies"
-        ],
+        "npm_packages": [],
         "optional_assets": [
           {
             "destination": "apps/desktop-workspace",
-            "format": "tar.gz",
-            "sha256": "de06044f037346deeb333f1e88d005bd521e5ab4e0bb6048c0e8ccfbd84bcfec",
-            "source": "assets/apps/desktop-workspace.tar.gz",
+            "format": "tar.xz",
+            "sha256": "438cafcb47b0d41c9bb794dc25fca783bf3bf53a311d6b1c51fb46bf807dce6c",
+            "source": "assets/apps/desktop-client-linux-x64.tar.xz",
             "type": "app_asset"
           }
         ],
         "python_extras": [],
         "python_packages": [],
-        "runtime_dependencies": [
-          "node"
-        ],
+        "runtime_dependencies": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop/package.toml",
-      "manifest_sha256": "d4be83b3ca63098898a3ef35f5362323dc673bf23434a1f5749bfc1d0851e01e",
+      "manifest_sha256": "b44a9f9618c511569872fe5a52a2e551c51eb5087a18157120657c2ab01f7fd5",
       "name": "desktop",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -503,7 +497,7 @@
         "toolsets": []
       },
       "type": "bundle",
-      "version": "0.1.0"
+      "version": "0.1.1"
     },
     "desktop-client": {
       "channel": "official",

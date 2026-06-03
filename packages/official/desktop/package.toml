@@ -1,10 +1,10 @@
 schema_version = 1
 name = "desktop"
 display_name = "Hermes Desktop"
-version = "0.1.0"
+version = "0.1.1"
 type = "bundle"
 channel = "official"
-description = "Package-managed Electron desktop app workspace for NanoHermes."
+description = "Package-managed prebuilt Electron desktop app for NanoHermes."
 license = "MIT"
 maintainer = "NanoHermes"
 dependencies = ["dashboard"]
@@ -17,10 +17,10 @@ max_version = "<1.0.0"
 python_extras = []
 python_packages = []
 system_packages = []
-npm_packages = ["electron workspace dependencies"]
-runtime_dependencies = ["node"]
+npm_packages = []
+runtime_dependencies = []
 optional_assets = [
-  { type = "app_asset", source = "assets/apps/desktop-workspace.tar.gz", format = "tar.gz", destination = "apps/desktop-workspace" },
+  { type = "app_asset", source = "assets/apps/desktop-client-linux-x64.tar.xz", format = "tar.xz", destination = "apps/desktop-workspace" },
 ]
 
 [tools]
@@ -41,7 +41,7 @@ required = []
 optional = []
 
 [checks]
-commands = ["npm"]
+commands = []
 python_imports = []
 
 [security]

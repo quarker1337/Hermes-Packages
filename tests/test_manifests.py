@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys
+import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -200,13 +201,48 @@ def test_desktop_client_package_is_dependency_free_remote_client():
     assert desktop_client["env"]["required"] == []
     assert desktop_client["env"]["optional"] == ["HERMES_DESKTOP_REMOTE_URL", "HERMES_DESKTOP_REMOTE_TOKEN"]
     assets = desktop_client["install"]["optional_assets"]
-    assert len(assets) == 1
-    asset = assets[0]
-    assert asset["type"] == "app_asset"
-    assert asset["source"] == "assets/apps/desktop-client-linux-x64.tar.xz"
-    assert asset["destination"] == "apps/desktop-workspace"
-    assert asset["format"] == "tar.xz"
-    assert len(asset["sha256"]) == 64
+    assert len(assets) == 2
+    app_asset, marker_asset = assets
+    assert app_asset["type"] == "app_asset"
+    assert app_asset["source"] == "assets/apps/desktop-client-linux-x64.tar.xz"
+    assert app_asset["destination"] == "apps/desktop-workspace"
+    assert app_asset["format"] == "tar.xz"
+    assert len(app_asset["sha256"]) == 64
+    assert marker_asset["type"] == "app_asset"
+    assert marker_asset["source"] == "assets/apps/desktop-client-remote-mode-overlay.tar.xz"
+    assert marker_asset["destination"] == "apps/desktop-workspace"
+    assert marker_asset["format"] == "tar.xz"
+    assert len(marker_asset["sha256"]) == 64
+
+
+def _tar_contains(archive: Path, member: str) -> bool:
+    with tarfile.open(archive) as tf:
+        return member in tf.getnames()
+
+
+def _tar_member_bytes(archive: Path, member: str) -> bytes:
+    with tarfile.open(archive) as tf:
+        handle = tf.extractfile(member)
+        assert handle is not None
+        return handle.read()
+
+
+def test_desktop_client_asset_is_baked_remote_only_without_changing_desktop_asset():
+    index = build_index(ROOT)
+    desktop_assets = index["packages"]["desktop"]["install"]["optional_assets"]
+    client_assets = index["packages"]["desktop-client"]["install"]["optional_assets"]
+    app_source = "assets/apps/desktop-client-linux-x64.tar.xz"
+    overlay_source = "assets/apps/desktop-client-remote-mode-overlay.tar.xz"
+    marker = "apps/desktop/release/linux-unpacked/resources/desktop-client-mode"
+    app_asar = "apps/desktop/release/linux-unpacked/resources/app.asar"
+
+    assert [asset["source"] for asset in desktop_assets] == [app_source]
+    assert [asset["source"] for asset in client_assets] == [app_source, overlay_source]
+    assert not _tar_contains(ROOT / app_source, marker)
+    assert _tar_contains(ROOT / overlay_source, marker)
+    client_asar = _tar_member_bytes(ROOT / overlay_source, app_asar)
+    assert b"isDesktopClientPackageMode" in client_asar
+    assert b"desktop-client-mode" in client_asar
 
 
 def test_china_provider_and_gateway_packages_ship_python_assets():

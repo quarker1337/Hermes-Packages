@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T18:43:10.584671+00:00",
+  "generated_at": "2026-06-03T21:21:08.668692+00:00",
   "package_count": 46,
   "packages": {
     "browser": {
@@ -472,7 +472,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop/package.toml",
-      "manifest_sha256": "68370a4d0d49763e091b76be0261d83a370066fe6bb5b1f3b24828fda121baa1",
+      "manifest_sha256": "91739a8a3f29bea1029d52081ba906b4c11e1af7c501e7c6a394cdda390ab4e5",
       "name": "desktop",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -498,7 +498,7 @@
         "toolsets": []
       },
       "type": "bundle",
-      "version": "0.1.2"
+      "version": "0.1.3"
     },
     "desktop-client": {
       "channel": "official",
@@ -526,6 +526,14 @@
             "sha256": "b4011c100dee1fe8d84325e680e32ea1649de006383c1f9151cd4c677d1ae65d",
             "source": "assets/apps/desktop-client-linux-x64.tar.xz",
             "type": "app_asset"
+          },
+          {
+            "destination": "apps/desktop-workspace",
+            "format": "tar.xz",
+            "overwrite": true,
+            "sha256": "c7e326b2ab9a24ecd0f47599c7003b3f37451c0fde91f158c30edfc79c0415ec",
+            "source": "assets/apps/desktop-client-remote-mode-overlay.tar.xz",
+            "type": "app_asset"
           }
         ],
         "python_extras": [],
@@ -536,7 +544,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop-client/package.toml",
-      "manifest_sha256": "a73efe727a087e2110b407259a094912c96d894cff9b21005d74f37c59195cbe",
+      "manifest_sha256": "c1fc291540d45d9dddef00540b01c778d2cc8fd0e9e85ef1e730a76cbc09a60b",
       "name": "desktop-client",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -562,7 +570,7 @@
         "toolsets": []
       },
       "type": "bundle",
-      "version": "0.1.4"
+      "version": "0.1.5"
     },
     "discord": {
       "channel": "official",

@@ -34,7 +34,7 @@ def test_optional_assets_are_structured_archive_descriptors():
 def test_expected_bootstrap_packages_exist():
     index = build_index(ROOT)
     expected = {
-        "web-search", "browser", "browser-engine", "dashboard", "desktop", "tts", "voice", "image-gen",
+        "web-search", "browser", "browser-engine", "dashboard", "desktop", "desktop-client", "tts", "voice", "image-gen",
         "gateway", "cron", "kanban", "discord", "discord-admin", "yuanbao",
         "feishu", "spotify", "homeassistant",
     }
@@ -184,6 +184,26 @@ def test_desktop_package_bundles_app_workspace_assets():
     assert len(asset["sha256"]) == 64
     assert desktop["permissions"]["shell"] is True
     assert desktop["permissions"]["filesystem"] is True
+
+
+def test_desktop_client_package_is_dependency_free_remote_client():
+    index = build_index(ROOT)
+    desktop_client = index["packages"]["desktop-client"]
+
+    assert desktop_client["type"] == "bundle"
+    assert desktop_client["dependencies"] == []
+    assert desktop_client["install"]["python_extras"] == []
+    assert desktop_client["install"].get("runtime_dependencies", []) == ["node"]
+    assert desktop_client["install"].get("npm_packages", []) == ["electron workspace dependencies"]
+    assert desktop_client["env"]["required"] == ["HERMES_DESKTOP_REMOTE_URL", "HERMES_DESKTOP_REMOTE_TOKEN"]
+    assets = desktop_client["install"]["optional_assets"]
+    assert len(assets) == 1
+    asset = assets[0]
+    assert asset["type"] == "app_asset"
+    assert asset["source"] == "assets/apps/desktop-workspace.tar.gz"
+    assert asset["destination"] == "apps/desktop-workspace"
+    assert asset["format"] == "tar.gz"
+    assert len(asset["sha256"]) == 64
 
 
 def test_china_provider_and_gateway_packages_ship_python_assets():

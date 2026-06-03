@@ -1,7 +1,7 @@
 schema_version = 1
 name = "desktop-client"
 display_name = "Hermes Desktop Client"
-version = "0.1.0"
+version = "0.1.1"
 type = "bundle"
 channel = "official"
 description = "Remote-only package-managed Electron desktop client for NanoHermes. Installs the client workspace without local dashboard/runtime dependencies."
@@ -17,8 +17,8 @@ max_version = "<1.0.0"
 python_extras = []
 python_packages = []
 system_packages = []
-npm_packages = ["electron workspace dependencies"]
-runtime_dependencies = ["node"]
+npm_packages = []
+runtime_dependencies = []
 optional_assets = [
   { type = "app_asset", source = "assets/apps/desktop-workspace.tar.gz", format = "tar.gz", destination = "apps/desktop-workspace" },
 ]
@@ -41,7 +41,7 @@ required = ["HERMES_DESKTOP_REMOTE_URL", "HERMES_DESKTOP_REMOTE_TOKEN"]
 optional = []
 
 [checks]
-commands = ["npm"]
+commands = []
 python_imports = []
 
 [security]

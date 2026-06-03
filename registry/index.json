@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T08:08:52.699486+00:00",
+  "generated_at": "2026-06-03T10:21:31.603332+00:00",
   "package_count": 46,
   "packages": {
     "browser": {
@@ -508,9 +508,7 @@
     "desktop-client": {
       "channel": "official",
       "checks": {
-        "commands": [
-          "npm"
-        ],
+        "commands": [],
         "python_imports": []
       },
       "dependencies": [],
@@ -524,9 +522,7 @@
         ]
       },
       "install": {
-        "npm_packages": [
-          "electron workspace dependencies"
-        ],
+        "npm_packages": [],
         "optional_assets": [
           {
             "destination": "apps/desktop-workspace",
@@ -538,15 +534,13 @@
         ],
         "python_extras": [],
         "python_packages": [],
-        "runtime_dependencies": [
-          "node"
-        ],
+        "runtime_dependencies": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop-client/package.toml",
-      "manifest_sha256": "6db395f6337cbaceff55306ef86496fd65b5d87e8cf661d37d8c3ec15400fee5",
+      "manifest_sha256": "9e8fe6066ce5716b269deb12b16deda2156a3686ef7461387e55a5e7f46fa11e",
       "name": "desktop-client",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -572,7 +566,7 @@
         "toolsets": []
       },
       "type": "bundle",
-      "version": "0.1.0"
+      "version": "0.1.1"
     },
     "discord": {
       "channel": "official",

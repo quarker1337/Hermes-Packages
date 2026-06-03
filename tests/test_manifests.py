@@ -193,8 +193,9 @@ def test_desktop_client_package_is_dependency_free_remote_client():
     assert desktop_client["type"] == "bundle"
     assert desktop_client["dependencies"] == []
     assert desktop_client["install"]["python_extras"] == []
-    assert desktop_client["install"].get("runtime_dependencies", []) == ["node"]
-    assert desktop_client["install"].get("npm_packages", []) == ["electron workspace dependencies"]
+    assert desktop_client["install"].get("runtime_dependencies", []) == []
+    assert desktop_client["install"].get("npm_packages", []) == []
+    assert desktop_client["checks"].get("commands", []) == []
     assert desktop_client["env"]["required"] == ["HERMES_DESKTOP_REMOTE_URL", "HERMES_DESKTOP_REMOTE_TOKEN"]
     assets = desktop_client["install"]["optional_assets"]
     assert len(assets) == 1

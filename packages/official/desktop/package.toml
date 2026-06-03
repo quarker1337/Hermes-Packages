@@ -1,7 +1,7 @@
 schema_version = 1
 name = "desktop"
 display_name = "Hermes Desktop"
-version = "0.1.1"
+version = "0.1.2"
 type = "bundle"
 channel = "official"
 description = "Package-managed prebuilt Electron desktop app for NanoHermes."
@@ -20,7 +20,7 @@ system_packages = []
 npm_packages = []
 runtime_dependencies = []
 optional_assets = [
-  { type = "app_asset", source = "assets/apps/desktop-client-linux-x64.tar.xz", format = "tar.xz", destination = "apps/desktop-workspace" },
+  { type = "app_asset", source = "assets/apps/desktop-client-linux-x64.tar.xz", format = "tar.xz", destination = "apps/desktop-workspace", overwrite = true },
 ]
 
 [tools]

@@ -1,0 +1,2 @@
+# Package assets are already compressed; avoid expensive/ineffective git delta compression.
+assets/apps/*.tar.xz -delta

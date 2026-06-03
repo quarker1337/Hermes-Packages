@@ -28,7 +28,7 @@ def test_optional_assets_are_structured_archive_descriptors():
             assert asset.get("type") in {"skill_pack", "python_module_pack", "app_asset"}
             assert asset.get("source")
             assert asset.get("destination")
-            assert asset.get("format") in {"tar.gz", "zip"}
+            assert asset.get("format") in {"tar.gz", "tar.xz", "zip"}
 
 
 def test_expected_bootstrap_packages_exist():
@@ -201,9 +201,9 @@ def test_desktop_client_package_is_dependency_free_remote_client():
     assert len(assets) == 1
     asset = assets[0]
     assert asset["type"] == "app_asset"
-    assert asset["source"] == "assets/apps/desktop-workspace.tar.gz"
+    assert asset["source"] == "assets/apps/desktop-client-linux-x64.tar.xz"
     assert asset["destination"] == "apps/desktop-workspace"
-    assert asset["format"] == "tar.gz"
+    assert asset["format"] == "tar.xz"
     assert len(asset["sha256"]) == 64
 
 

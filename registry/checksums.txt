@@ -5,7 +5,7 @@ cc0df1e83e9acb3c76cd4b466df432077878320416237e82a0613ceb7cc817ea  packages/offic
 05f10889abef8174c3d3fd199c2dc887d1551667f3d6eeee12d7f22772a3f55a  packages/official/cron/package.toml  # cron
 62cf3d03fe6036a0b547b91a3aded223d657420108fb4ae9b609376f9fda7f2d  packages/official/dashboard/package.toml  # dashboard
 68370a4d0d49763e091b76be0261d83a370066fe6bb5b1f3b24828fda121baa1  packages/official/desktop/package.toml  # desktop
-74fcd6b5945288a38bbb65e50836703cdbde7bcb5a5310681cce4ce94b53626d  packages/official/desktop-client/package.toml  # desktop-client
+4d6e5242bc4782d56d05368e9d1fb8246cc096e16762fa44ff4305a6eeca217f  packages/official/desktop-client/package.toml  # desktop-client
 17f662c717c457e004d53d8663f8644d85aac09a0af422c63b516bf2b4b843df  packages/official/discord/package.toml  # discord
 67cfc8375caa30b9ccdec499044f70acf884376275d1bc530a5deff4e192332a  packages/official/discord-admin/package.toml  # discord-admin
 81a79bb166470bcb7667c0195c7e3aa7a7bcd2dd016c07d8e8158745e1135371  packages/official/extra-platform-plugins/package.toml  # extra-platform-plugins

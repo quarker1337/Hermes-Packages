@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T14:35:06.175546+00:00",
+  "generated_at": "2026-06-03T16:16:44.632270+00:00",
   "package_count": 46,
   "packages": {
     "browser": {
@@ -459,7 +459,7 @@
             "destination": "apps/desktop-workspace",
             "format": "tar.xz",
             "overwrite": true,
-            "sha256": "438cafcb47b0d41c9bb794dc25fca783bf3bf53a311d6b1c51fb46bf807dce6c",
+            "sha256": "d95253f18e5e495419cf7fe0a7a09a330f99b38d7d1ab66085a9f71ae0526640",
             "source": "assets/apps/desktop-client-linux-x64.tar.xz",
             "type": "app_asset"
           }
@@ -510,11 +510,11 @@
       "description": "Remote-only package-managed Electron desktop client for NanoHermes. Installs the client workspace without local dashboard/runtime dependencies.",
       "display_name": "Hermes Desktop Client",
       "env": {
-        "optional": [],
-        "required": [
+        "optional": [
           "HERMES_DESKTOP_REMOTE_URL",
           "HERMES_DESKTOP_REMOTE_TOKEN"
-        ]
+        ],
+        "required": []
       },
       "install": {
         "npm_packages": [],
@@ -523,7 +523,7 @@
             "destination": "apps/desktop-workspace",
             "format": "tar.xz",
             "overwrite": true,
-            "sha256": "438cafcb47b0d41c9bb794dc25fca783bf3bf53a311d6b1c51fb46bf807dce6c",
+            "sha256": "d95253f18e5e495419cf7fe0a7a09a330f99b38d7d1ab66085a9f71ae0526640",
             "source": "assets/apps/desktop-client-linux-x64.tar.xz",
             "type": "app_asset"
           }
@@ -536,7 +536,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop-client/package.toml",
-      "manifest_sha256": "74fcd6b5945288a38bbb65e50836703cdbde7bcb5a5310681cce4ce94b53626d",
+      "manifest_sha256": "4d6e5242bc4782d56d05368e9d1fb8246cc096e16762fa44ff4305a6eeca217f",
       "name": "desktop-client",
       "nanohermes": {
         "max_version": "<1.0.0",

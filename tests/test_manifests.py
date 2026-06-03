@@ -197,7 +197,8 @@ def test_desktop_client_package_is_dependency_free_remote_client():
     assert desktop_client["install"].get("runtime_dependencies", []) == []
     assert desktop_client["install"].get("npm_packages", []) == []
     assert desktop_client["checks"].get("commands", []) == []
-    assert desktop_client["env"]["required"] == ["HERMES_DESKTOP_REMOTE_URL", "HERMES_DESKTOP_REMOTE_TOKEN"]
+    assert desktop_client["env"]["required"] == []
+    assert desktop_client["env"]["optional"] == ["HERMES_DESKTOP_REMOTE_URL", "HERMES_DESKTOP_REMOTE_TOKEN"]
     assets = desktop_client["install"]["optional_assets"]
     assert len(assets) == 1
     asset = assets[0]

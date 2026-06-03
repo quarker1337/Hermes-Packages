@@ -37,8 +37,8 @@ microphone = true
 secrets = []
 
 [env]
-required = ["HERMES_DESKTOP_REMOTE_URL", "HERMES_DESKTOP_REMOTE_TOKEN"]
-optional = []
+required = []
+optional = ["HERMES_DESKTOP_REMOTE_URL", "HERMES_DESKTOP_REMOTE_TOKEN"]
 
 [checks]
 commands = []

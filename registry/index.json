@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T19:59:37.098624+00:00",
+  "generated_at": "2026-06-09T20:32:28.798896+00:00",
   "package_count": 46,
   "packages": {
     "browser": {
@@ -467,7 +467,7 @@
             "destination": "apps/desktop-workspace",
             "format": "tar.xz",
             "overwrite": true,
-            "sha256": "d6b248ea60a6f25579779542a588f65a9fd20ac2e80170fafddba457cfa2c4a4",
+            "sha256": "d1e687f61f28ff2350f2c4f7991ac6a4b57cf335669aea626c2bbd321bb7b967",
             "source": "assets/apps/desktop-remote-recovery-overlay.tar.xz",
             "type": "app_asset"
           }
@@ -480,7 +480,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop/package.toml",
-      "manifest_sha256": "534411ca52aec2fc2bb0f3906cb91d464cf93e186585d72c79bb062a4af569e0",
+      "manifest_sha256": "7ef04c073c839ec1d26e4759048e47f084ce8618dbf5dddde92046961abd99f7",
       "name": "desktop",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -506,7 +506,7 @@
         "toolsets": []
       },
       "type": "bundle",
-      "version": "0.1.4"
+      "version": "0.1.5"
     },
     "desktop-client": {
       "channel": "official",
@@ -539,7 +539,7 @@
             "destination": "apps/desktop-workspace",
             "format": "tar.xz",
             "overwrite": true,
-            "sha256": "6375b8307e45b62a5a70d307c70a6b023d8c8cacb3055cfd25fec43a36702f50",
+            "sha256": "53c779d6c5eb855e79752da551f74e4e0aa20cfba0843fd07d01915b6dadc3f8",
             "source": "assets/apps/desktop-client-remote-mode-overlay.tar.xz",
             "type": "app_asset"
           }
@@ -552,7 +552,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop-client/package.toml",
-      "manifest_sha256": "54679552d84c3f1fdb365d3faea180468eff8d80bc805a69099b27e0d69c8785",
+      "manifest_sha256": "1e3bbab07dcbb7df6cae7e9f32eeeeb52e36741d55ebd977ca95896655d8c067",
       "name": "desktop-client",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -578,7 +578,7 @@
         "toolsets": []
       },
       "type": "bundle",
-      "version": "0.1.7"
+      "version": "0.1.8"
     },
     "discord": {
       "channel": "official",

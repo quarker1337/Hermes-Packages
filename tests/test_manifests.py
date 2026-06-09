@@ -354,6 +354,34 @@ def test_desktop_client_remote_required_path_is_not_logged_as_boot_error():
     assert b"HERMES_DESKTOP_REMOTE_REQUIRED" in _asar_file_bytes(app_asar, "electron/main.cjs")
 
 
+def test_desktop_remote_token_storage_falls_back_when_secure_storage_is_unavailable():
+    source = ROOT / "assets/apps/desktop-workspace.tar.gz"
+    app_asar_member = "apps/desktop/release/linux-unpacked/resources/app.asar"
+    overlays = [
+        ROOT / "assets/apps/desktop-remote-recovery-overlay.tar.xz",
+        ROOT / "assets/apps/desktop-client-remote-mode-overlay.tar.xz",
+    ]
+
+    source_hardening = _tar_member_bytes(source, "apps/desktop/electron/hardening.cjs")
+    source_main = _tar_member_bytes(source, "apps/desktop/electron/main.cjs")
+    hardening_sources = [source_hardening]
+    main_sources = [source_main]
+
+    for overlay in overlays:
+        app_asar = _tar_member_bytes(overlay, app_asar_member)
+        hardening_sources.append(_asar_file_bytes(app_asar, "electron/hardening.cjs"))
+        main_sources.append(_asar_file_bytes(app_asar, "electron/main.cjs"))
+
+    for hardening in hardening_sources:
+        assert b"safeStorage unavailable; storing token in restricted connection.json" in hardening
+        assert b"encoding: 'plain'" in hardening
+        assert b"Secure token storage is unavailable" not in hardening
+
+    for main in main_sources:
+        assert b"mode: 0o600" in main
+        assert b"chmodSync(DESKTOP_CONNECTION_CONFIG_PATH, 0o600)" in main
+
+
 def test_china_provider_and_gateway_packages_ship_python_assets():
     index = build_index(ROOT)
 

@@ -239,10 +239,37 @@ def test_desktop_client_asset_is_baked_remote_only_without_changing_desktop_asse
     assert [asset["source"] for asset in desktop_assets] == [app_source]
     assert [asset["source"] for asset in client_assets] == [app_source, overlay_source]
     assert not _tar_contains(ROOT / app_source, marker)
+    normal_asar = _tar_member_bytes(ROOT / app_source, app_asar)
+    assert b"isDesktopClientPackageMode" not in normal_asar
     assert _tar_contains(ROOT / overlay_source, marker)
     client_asar = _tar_member_bytes(ROOT / overlay_source, app_asar)
     assert b"isDesktopClientPackageMode" in client_asar
     assert b"desktop-client-mode" in client_asar
+    assert b"You can connect to a remote gateway now" in client_asar
+    assert b"Repair install" in client_asar
+    assert b"Connect a remote Hermes gateway" in client_asar
+    assert b"Connect remote gateway" in client_asar
+
+
+def test_desktop_workspace_source_preserves_remote_client_start_screen():
+    source = ROOT / "assets/apps/desktop-workspace.tar.gz"
+
+    main = _tar_member_bytes(source, "apps/desktop/electron/main.cjs")
+    assert b"isDesktopClientPackageMode" in main
+    assert b"backend.remote.required" in main
+    assert b"no local Hermes gateway will be installed or started" in main
+
+    global_types = _tar_member_bytes(source, "apps/desktop/src/global.d.ts")
+    assert b"clientMode: boolean" in global_types
+
+    gateway_settings = _tar_member_bytes(source, "apps/desktop/src/app/settings/gateway-settings.tsx")
+    assert b"NanoHermes Desktop Client connects to an already-running Hermes backend" in gateway_settings
+    assert b"disabled={state.envOverride || state.clientMode}" in gateway_settings
+
+    boot_overlay = _tar_member_bytes(source, "apps/desktop/src/components/boot-failure-overlay.tsx")
+    assert b"Connect a remote Hermes gateway" in boot_overlay
+    assert b"Connect remote gateway" in boot_overlay
+    assert b"Use local gateway" not in boot_overlay
 
 
 def test_china_provider_and_gateway_packages_ship_python_assets():

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T21:21:08.668692+00:00",
+  "generated_at": "2026-06-09T17:05:45.389703+00:00",
   "package_count": 46,
   "packages": {
     "browser": {
@@ -531,7 +531,7 @@
             "destination": "apps/desktop-workspace",
             "format": "tar.xz",
             "overwrite": true,
-            "sha256": "c7e326b2ab9a24ecd0f47599c7003b3f37451c0fde91f158c30edfc79c0415ec",
+            "sha256": "91ddb39535e4a3a4ddd15818b703a41655299fd46e2fd63b76ce3b2f744ad3a9",
             "source": "assets/apps/desktop-client-remote-mode-overlay.tar.xz",
             "type": "app_asset"
           }
@@ -544,7 +544,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop-client/package.toml",
-      "manifest_sha256": "c1fc291540d45d9dddef00540b01c778d2cc8fd0e9e85ef1e730a76cbc09a60b",
+      "manifest_sha256": "e11c70adb17a0883aef03b9c93d5dea7957299bb5a57806a02d5c435f0395a95",
       "name": "desktop-client",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -570,7 +570,7 @@
         "toolsets": []
       },
       "type": "bundle",
-      "version": "0.1.5"
+      "version": "0.1.6"
     },
     "discord": {
       "channel": "official",

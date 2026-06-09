@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T18:55:04.520380+00:00",
+  "generated_at": "2026-06-09T19:59:37.098624+00:00",
   "package_count": 46,
   "packages": {
     "browser": {
@@ -462,6 +462,14 @@
             "sha256": "b4011c100dee1fe8d84325e680e32ea1649de006383c1f9151cd4c677d1ae65d",
             "source": "assets/apps/desktop-client-linux-x64.tar.xz",
             "type": "app_asset"
+          },
+          {
+            "destination": "apps/desktop-workspace",
+            "format": "tar.xz",
+            "overwrite": true,
+            "sha256": "d6b248ea60a6f25579779542a588f65a9fd20ac2e80170fafddba457cfa2c4a4",
+            "source": "assets/apps/desktop-remote-recovery-overlay.tar.xz",
+            "type": "app_asset"
           }
         ],
         "python_extras": [],
@@ -472,7 +480,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/desktop/package.toml",
-      "manifest_sha256": "91739a8a3f29bea1029d52081ba906b4c11e1af7c501e7c6a394cdda390ab4e5",
+      "manifest_sha256": "534411ca52aec2fc2bb0f3906cb91d464cf93e186585d72c79bb062a4af569e0",
       "name": "desktop",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -498,7 +506,7 @@
         "toolsets": []
       },
       "type": "bundle",
-      "version": "0.1.3"
+      "version": "0.1.4"
     },
     "desktop-client": {
       "channel": "official",
@@ -531,7 +539,7 @@
             "destination": "apps/desktop-workspace",
             "format": "tar.xz",
             "overwrite": true,
-            "sha256": "62009f2e9888ffa61566ca3485a61e6ec76b70efab25b6ad5eca47b81184f3bd",
+            "sha256": "6375b8307e45b62a5a70d307c70a6b023d8c8cacb3055cfd25fec43a36702f50",
             "source": "assets/apps/desktop-client-remote-mode-overlay.tar.xz",
             "type": "app_asset"
           }

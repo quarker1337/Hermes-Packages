@@ -4,7 +4,7 @@ cc0df1e83e9acb3c76cd4b466df432077878320416237e82a0613ceb7cc817ea  packages/offic
 9b54df3199b76b291b5e50d0dc1c35bf1bee07a37113da2b119eb7c90fd296ff  packages/official/china-model-providers/package.toml  # china-model-providers
 05f10889abef8174c3d3fd199c2dc887d1551667f3d6eeee12d7f22772a3f55a  packages/official/cron/package.toml  # cron
 62cf3d03fe6036a0b547b91a3aded223d657420108fb4ae9b609376f9fda7f2d  packages/official/dashboard/package.toml  # dashboard
-91739a8a3f29bea1029d52081ba906b4c11e1af7c501e7c6a394cdda390ab4e5  packages/official/desktop/package.toml  # desktop
+534411ca52aec2fc2bb0f3906cb91d464cf93e186585d72c79bb062a4af569e0  packages/official/desktop/package.toml  # desktop
 54679552d84c3f1fdb365d3faea180468eff8d80bc805a69099b27e0d69c8785  packages/official/desktop-client/package.toml  # desktop-client
 17f662c717c457e004d53d8663f8644d85aac09a0af422c63b516bf2b4b843df  packages/official/discord/package.toml  # discord
 67cfc8375caa30b9ccdec499044f70acf884376275d1bc530a5deff4e192332a  packages/official/discord-admin/package.toml  # discord-admin

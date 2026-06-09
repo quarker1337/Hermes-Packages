@@ -179,13 +179,20 @@ def test_desktop_package_bundles_app_workspace_assets():
     assert desktop["checks"].get("commands", []) == []
     assert desktop["tools"]["toolsets"] == []
     assets = desktop["install"]["optional_assets"]
-    assert len(assets) == 1
-    asset = assets[0]
-    assert asset["type"] == "app_asset"
-    assert asset["source"] == "assets/apps/desktop-client-linux-x64.tar.xz"
-    assert asset["destination"] == "apps/desktop-workspace"
-    assert asset["format"] == "tar.xz"
-    assert len(asset["sha256"]) == 64
+    assert len(assets) == 2
+    app_asset, recovery_asset = assets
+    assert app_asset["type"] == "app_asset"
+    assert app_asset["source"] == "assets/apps/desktop-client-linux-x64.tar.xz"
+    assert app_asset["destination"] == "apps/desktop-workspace"
+    assert app_asset["format"] == "tar.xz"
+    assert app_asset["overwrite"] is True
+    assert len(app_asset["sha256"]) == 64
+    assert recovery_asset["type"] == "app_asset"
+    assert recovery_asset["source"] == "assets/apps/desktop-remote-recovery-overlay.tar.xz"
+    assert recovery_asset["destination"] == "apps/desktop-workspace"
+    assert recovery_asset["format"] == "tar.xz"
+    assert recovery_asset["overwrite"] is True
+    assert len(recovery_asset["sha256"]) == 64
     assert desktop["permissions"]["shell"] is True
     assert desktop["permissions"]["filesystem"] is True
 
@@ -243,28 +250,47 @@ def _asar_file_bytes(asar: bytes, member: str) -> bytes:
     return asar[offset:offset + int(entry["size"])]
 
 
-def test_desktop_client_asset_is_baked_remote_only_without_changing_desktop_asset():
+def test_desktop_and_client_overlays_preserve_remote_gateway_recovery_modes():
     index = build_index(ROOT)
     desktop_assets = index["packages"]["desktop"]["install"]["optional_assets"]
     client_assets = index["packages"]["desktop-client"]["install"]["optional_assets"]
     app_source = "assets/apps/desktop-client-linux-x64.tar.xz"
-    overlay_source = "assets/apps/desktop-client-remote-mode-overlay.tar.xz"
+    desktop_overlay_source = "assets/apps/desktop-remote-recovery-overlay.tar.xz"
+    client_overlay_source = "assets/apps/desktop-client-remote-mode-overlay.tar.xz"
     marker = "apps/desktop/release/linux-unpacked/resources/desktop-client-mode"
     app_asar = "apps/desktop/release/linux-unpacked/resources/app.asar"
 
-    assert [asset["source"] for asset in desktop_assets] == [app_source]
-    assert [asset["source"] for asset in client_assets] == [app_source, overlay_source]
+    assert [asset["source"] for asset in desktop_assets] == [app_source, desktop_overlay_source]
+    assert [asset["source"] for asset in client_assets] == [app_source, client_overlay_source]
     assert not _tar_contains(ROOT / app_source, marker)
+
     normal_asar = _tar_member_bytes(ROOT / app_source, app_asar)
     assert b"isDesktopClientPackageMode" not in normal_asar
-    assert _tar_contains(ROOT / overlay_source, marker)
-    client_asar = _tar_member_bytes(ROOT / overlay_source, app_asar)
+
+    desktop_asar = _tar_member_bytes(ROOT / desktop_overlay_source, app_asar)
+    assert not _tar_contains(ROOT / desktop_overlay_source, marker)
+    assert b"isDesktopClientPackageMode" not in _asar_file_bytes(desktop_asar, "electron/main.cjs")
+    desktop_renderer = _asar_file_bytes(desktop_asar, "dist/assets/index-Bmd0F-FY.js")
+    assert b"Enter a remote gateway below to continue" in desktop_renderer
+    assert b"Connect a Hermes gateway" in desktop_renderer
+    assert b"Connect a remote Hermes gateway" in desktop_renderer
+    assert b"Connect remote gateway" in desktop_renderer
+    assert b"Remote URL" in desktop_renderer
+    assert b"Hermes couldn't start" not in desktop_renderer
+    assert b"Try one of the recovery steps below" not in desktop_renderer
+    assert b"!_||0)return null" in desktop_renderer
+
+    assert _tar_contains(ROOT / client_overlay_source, marker)
+    client_asar = _tar_member_bytes(ROOT / client_overlay_source, app_asar)
     assert b"isDesktopClientPackageMode" in client_asar
     assert b"desktop-client-mode" in client_asar
-    assert b"You can connect to a remote gateway now" in client_asar
+    assert b"Enter a remote gateway below to continue" in client_asar
     assert b"Repair install" in client_asar
+    assert b"Connect a Hermes gateway" in client_asar
     assert b"Connect a remote Hermes gateway" in client_asar
     assert b"Connect remote gateway" in client_asar
+    assert b"Hermes couldn't start" not in _asar_file_bytes(client_asar, "dist/assets/index-Bmd0F-FY.js")
+    assert b"!_||0)return null" in _asar_file_bytes(client_asar, "dist/assets/index-Bmd0F-FY.js")
 
 
 def test_desktop_workspace_source_preserves_remote_client_start_screen():
@@ -284,8 +310,14 @@ def test_desktop_workspace_source_preserves_remote_client_start_screen():
 
     boot_overlay = _tar_member_bytes(source, "apps/desktop/src/components/boot-failure-overlay.tsx")
     assert b"Connect a remote Hermes gateway" in boot_overlay
+    assert b"Connect a Hermes gateway" in boot_overlay
+    assert b"Enter a remote gateway below to continue" in boot_overlay
+    assert b"Hermes couldn't start" not in boot_overlay
     assert b"Connect remote gateway" in boot_overlay
     assert b"Use local gateway" not in boot_overlay
+    assert b"$desktopOnboarding" not in boot_overlay
+    assert b"if (!visible)" in boot_overlay
+    assert b"generic setup splash" in boot_overlay
 
 
 def test_desktop_client_no_remote_first_run_does_not_poll_backend_status():

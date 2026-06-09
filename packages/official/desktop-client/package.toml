@@ -1,7 +1,7 @@
 schema_version = 1
 name = "desktop-client"
 display_name = "Hermes Desktop Client"
-version = "0.1.6"
+version = "0.1.7"
 type = "bundle"
 channel = "official"
 description = "Remote-only package-managed Electron desktop client for NanoHermes. Installs the client workspace without local dashboard/runtime dependencies."

@@ -1,4 +1,6 @@
 from pathlib import Path
+import json
+import struct
 import sys
 import tarfile
 
@@ -227,6 +229,20 @@ def _tar_member_bytes(archive: Path, member: str) -> bytes:
         return handle.read()
 
 
+def _asar_file_bytes(asar: bytes, member: str) -> bytes:
+    magic, pickle_size, _header_size, json_size = struct.unpack_from("<IIII", asar, 0)
+    assert magic == 4
+    header = json.loads(asar[16:16 + json_size].decode("utf-8"))
+    payload_base = 8 + pickle_size
+    entry = header["files"]
+    for part in member.split("/"):
+        entry = entry[part]
+        if "files" in entry:
+            entry = entry["files"]
+    offset = payload_base + int(entry["offset"])
+    return asar[offset:offset + int(entry["size"])]
+
+
 def test_desktop_client_asset_is_baked_remote_only_without_changing_desktop_asset():
     index = build_index(ROOT)
     desktop_assets = index["packages"]["desktop"]["install"]["optional_assets"]
@@ -270,6 +286,40 @@ def test_desktop_workspace_source_preserves_remote_client_start_screen():
     assert b"Connect a remote Hermes gateway" in boot_overlay
     assert b"Connect remote gateway" in boot_overlay
     assert b"Use local gateway" not in boot_overlay
+
+
+def test_desktop_client_no_remote_first_run_does_not_poll_backend_status():
+    source = ROOT / "assets/apps/desktop-workspace.tar.gz"
+
+    status_hook = _tar_member_bytes(source, "apps/desktop/src/app/shell/hooks/use-status-snapshot.ts")
+    assert b"gatewayState !== 'open'" in status_hook
+    assert status_hook.index(b"gatewayState !== 'open'") < status_hook.index(b"getStatus()")
+
+    overlay = ROOT / "assets/apps/desktop-client-remote-mode-overlay.tar.xz"
+    app_asar = _tar_member_bytes(overlay, "apps/desktop/release/linux-unpacked/resources/app.asar")
+    renderer = _asar_file_bytes(app_asar, "dist/assets/index-Bmd0F-FY.js")
+    hook_start = renderer.index(b"function son(")
+    hook_end = renderer.index(b"function g5(", hook_start)
+    compiled_hook = renderer[hook_start:hook_end]
+    assert b"e!==`open`" in compiled_hook
+    assert compiled_hook.index(b"e!==`open`") < compiled_hook.index(b"uue()")
+
+
+def test_desktop_client_remote_required_path_is_not_logged_as_boot_error():
+    source = ROOT / "assets/apps/desktop-workspace.tar.gz"
+    overlay = ROOT / "assets/apps/desktop-client-remote-mode-overlay.tar.xz"
+
+    main = _tar_member_bytes(source, "apps/desktop/electron/main.cjs")
+    assert b"HERMES_DESKTOP_REMOTE_REQUIRED" in main
+    assert b"if (!isRemoteRequiredError(error))" in main
+    assert b"if (isRemoteRequiredError(error)) {\n      throw error\n    }" in main
+
+    gateway_boot = _tar_member_bytes(source, "apps/desktop/src/app/gateway/hooks/use-gateway-boot.ts")
+    assert b"isRemoteRequiredMessage" in gateway_boot
+    assert gateway_boot.index(b"isRemoteRequiredMessage(message)") < gateway_boot.index(b"failDesktopBoot(message)")
+
+    app_asar = _tar_member_bytes(overlay, "apps/desktop/release/linux-unpacked/resources/app.asar")
+    assert b"HERMES_DESKTOP_REMOTE_REQUIRED" in _asar_file_bytes(app_asar, "electron/main.cjs")
 
 
 def test_china_provider_and_gateway_packages_ship_python_assets():

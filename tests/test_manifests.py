@@ -121,6 +121,18 @@ def test_browser_package_bundles_browser_python_assets():
     assert "software-development/browser-automation-workflow" in browser["contents"]["skills"]
 
 
+def test_browser_python_asset_has_current_agent_browser_chrome_probe():
+    """The browser package asset must stay in sync with browser_tool.py probes."""
+    asset_path = ROOT / "assets/python/browser-tools.tar.gz"
+    with tarfile.open(asset_path, "r:gz") as tf:
+        member = tf.extractfile("browser_tool.py")
+        assert member is not None
+        browser_tool = member.read().decode("utf-8")
+
+    assert "~/.agent-browser/browsers" in browser_tool
+    assert '"chrome-"' in browser_tool
+
+
 def test_browser_engine_package_explicitly_installs_runtime_dependency():
     index = build_index(ROOT)
     engine = index["packages"]["browser-engine"]
@@ -131,6 +143,73 @@ def test_browser_engine_package_explicitly_installs_runtime_dependency():
     assert engine["install"]["runtime_dependencies"] == ["browser"]
     assert engine["install"]["optional_assets"] == []
     assert engine["security"]["post_install_scripts"] is False
+
+
+def test_package_managed_toolsets_restore_omitted_first_party_modules():
+    """Packages advertising omitted Nano tool modules must restore those files."""
+    index = build_index(ROOT)
+    expected = {
+        "web-search": ("assets/python/web-search-tools.tar.gz", {"web_tools.py", "xai_http.py", "debug_helpers.py"}),
+        "tts": ("assets/python/tts-tools.tar.gz", {"tts_tool.py", "xai_http.py", "voice_mode.py", "transcription_tools.py", "neutts_synth.py"}),
+        "image-gen": ("assets/python/image-gen-tools.tar.gz", {"image_generation_tool.py", "fal_common.py", "debug_helpers.py"}),
+        "gateway": ("assets/python/gateway-tools.tar.gz", {"send_message_tool.py"}),
+        "homeassistant": ("assets/python/homeassistant-tools.tar.gz", {"homeassistant_tool.py"}),
+        "feishu": ("assets/python/feishu-tools.tar.gz", {"feishu_doc_tool.py", "feishu_drive_tool.py"}),
+        "yuanbao": ("assets/python/yuanbao-tools.tar.gz", {"yuanbao_tools.py"}),
+    }
+
+    for package_name, (source, members) in expected.items():
+        package = index["packages"][package_name]
+        assets = package["install"]["optional_assets"]
+        asset = next((item for item in assets if item.get("source") == source), None)
+        assert asset is not None, f"{package_name} is missing {source}"
+        assert asset["type"] == "python_module_pack"
+        assert asset["destination"] == "python-site-packages/tools"
+        assert asset["format"] == "tar.gz"
+        assert len(asset["sha256"]) == 64
+        with tarfile.open(ROOT / source, "r:gz") as tf:
+            assert members <= set(tf.getnames())
+
+
+def test_no_placeholder_python_extras_for_package_managed_lazy_toolsets():
+    index = build_index(ROOT)
+    for package_name in {
+        "discord",
+        "discord-admin",
+        "gateway",
+        "image-gen",
+        "spotify",
+        "tts",
+        "web-search",
+        "yuanbao",
+    }:
+        assert index["packages"][package_name]["install"]["python_extras"] == []
+
+
+def test_package_tool_metadata_matches_runtime_registry_names():
+    index = build_index(ROOT)
+    expected_tools = {
+        "tts": {"text_to_speech"},
+        "voice": {"text_to_speech"},
+        "gateway": {"send_message"},
+        "homeassistant": {"ha_list_entities", "ha_get_state", "ha_list_services", "ha_call_service"},
+        "feishu": {
+            "feishu_doc_read",
+            "feishu_drive_list_comments",
+            "feishu_drive_list_comment_replies",
+            "feishu_drive_reply_comment",
+            "feishu_drive_add_comment",
+        },
+        "yuanbao": {
+            "yb_query_group_info",
+            "yb_query_group_members",
+            "yb_send_dm",
+            "yb_search_sticker",
+            "yb_send_sticker",
+        },
+    }
+    for package_name, tools in expected_tools.items():
+        assert set(index["packages"][package_name]["tools"]["tools"]) == tools
 
 
 def test_dashboard_package_bundles_kanban_python_assets():

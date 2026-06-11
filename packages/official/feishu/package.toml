@@ -19,12 +19,19 @@ python_packages = []
 system_packages = []
 npm_packages = []
 optional_assets = [
+  { type = "python_module_pack", source = "assets/python/feishu-tools.tar.gz", format = "tar.gz", sha256 = "b25c12dba3ba4ef56d2a3cf89fe243096675465d0a61768a51866f8c10add702", destination = "python-site-packages/tools" },
   { type = "python_module_pack", source = "assets/python/feishu-gateway-platforms.tar.gz", format = "tar.gz", destination = "python-site-packages/gateway/platforms", overwrite = false },
 ]
 
 [tools]
 toolsets = ["feishu_doc", "feishu_drive"]
-tools = []
+tools = [
+  "feishu_doc_read",
+  "feishu_drive_list_comments",
+  "feishu_drive_list_comment_replies",
+  "feishu_drive_reply_comment",
+  "feishu_drive_add_comment",
+]
 
 [permissions]
 network = true

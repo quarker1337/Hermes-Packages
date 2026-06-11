@@ -14,15 +14,17 @@ min_version = "0.1.0"
 max_version = "<1.0.0"
 
 [install]
-python_extras = ["tts"]
+python_extras = []
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "python_module_pack", source = "assets/python/tts-tools.tar.gz", format = "tar.gz", sha256 = "b2f631ad59418a0ac72b75d89c91d6b0c7a1e69b575a18dee4e85fd52520f221", destination = "python-site-packages/tools" },
+]
 
 [tools]
 toolsets = ["tts"]
-tools = ["tts_speak"]
+tools = ["text_to_speech"]
 
 [permissions]
 network = true

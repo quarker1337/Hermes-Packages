@@ -19,12 +19,18 @@ python_packages = []
 system_packages = []
 npm_packages = []
 optional_assets = [
+  { type = "python_module_pack", source = "assets/python/homeassistant-tools.tar.gz", format = "tar.gz", sha256 = "39ce51b213057d9e27822d6282bbe82f4600ba9ebe7ab627d045d413295547c4", destination = "python-site-packages/tools" },
   { type = "skill_pack", source = "assets/skills/skills-homeassistant.tar.gz", format = "tar.gz", sha256 = "d987c43a44a319a566bd8f7eeb48355e11499be0cbce3234dd3a11737faa59ef", destination = "skills", overwrite = false },
 ]
 
 [tools]
 toolsets = ["homeassistant"]
-tools = []
+tools = [
+  "ha_list_entities",
+  "ha_get_state",
+  "ha_list_services",
+  "ha_call_service",
+]
 
 [permissions]
 network = true
@@ -44,7 +50,7 @@ commands = []
 python_imports = []
 
 [security]
-checksum = "d987c43a44a319a566bd8f7eeb48355e11499be0cbce3234dd3a11737faa59ef"
+checksum = ""
 signed = false
 post_install_scripts = false
 

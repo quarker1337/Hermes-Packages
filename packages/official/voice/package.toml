@@ -22,7 +22,7 @@ optional_assets = []
 
 [tools]
 toolsets = ["tts"]
-tools = ["tts_speak"]
+tools = ["text_to_speech"]
 
 [permissions]
 network = true

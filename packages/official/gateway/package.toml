@@ -14,15 +14,17 @@ min_version = "0.1.0"
 max_version = "<1.0.0"
 
 [install]
-python_extras = ["gateway"]
+python_extras = []
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "python_module_pack", source = "assets/python/gateway-tools.tar.gz", format = "tar.gz", sha256 = "5d44c236697e0174595b50cb2450a7ed867355016dcae07ed569ed6de61934dd", destination = "python-site-packages/tools" },
+]
 
 [tools]
 toolsets = ["messaging"]
-tools = []
+tools = ["send_message"]
 
 [permissions]
 network = true

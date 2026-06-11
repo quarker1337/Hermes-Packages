@@ -14,7 +14,7 @@ min_version = "0.1.0"
 max_version = "<1.0.0"
 
 [install]
-python_extras = ["spotify"]
+python_extras = []
 python_packages = []
 system_packages = []
 npm_packages = []

@@ -14,11 +14,13 @@ min_version = "0.1.0"
 max_version = "<1.0.0"
 
 [install]
-python_extras = ["image-gen"]
+python_extras = []
 python_packages = []
 system_packages = []
 npm_packages = []
-optional_assets = []
+optional_assets = [
+  { type = "python_module_pack", source = "assets/python/image-gen-tools.tar.gz", format = "tar.gz", sha256 = "27272ee1b7fcb5ee7339ff69c1c4f61b3607a618a8a03343b8384caeddb1dfa8", destination = "python-site-packages/tools" },
+]
 
 [tools]
 toolsets = ["image_gen"]

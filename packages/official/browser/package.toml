@@ -19,7 +19,7 @@ python_packages = []
 system_packages = []
 npm_packages = []
 optional_assets = [
-  { type = "python_module_pack", source = "assets/python/browser-tools.tar.gz", format = "tar.gz", sha256 = "3d8c74f67399df8e8758639c118dbc73f8180870f212c43310e613524f1600bc", destination = "python-site-packages/tools" },
+  { type = "python_module_pack", source = "assets/python/browser-tools.tar.gz", format = "tar.gz", sha256 = "16b5449889bc336958bdf489dd07d42e19f669008391f9cc63e572dc6544cf62", destination = "python-site-packages/tools" },
   { type = "skill_pack", source = "assets/skills/skills-browser-workflow.tar.gz", format = "tar.gz", sha256 = "4b026258a024f618c4586c70b8f4e1bccfff8b545e7caf03b3121c85d919b04a", destination = "skills", overwrite = false },
 ]
 

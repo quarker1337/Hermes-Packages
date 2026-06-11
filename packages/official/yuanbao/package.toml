@@ -14,18 +14,25 @@ min_version = "0.1.0"
 max_version = "<1.0.0"
 
 [install]
-python_extras = ["yuanbao"]
+python_extras = []
 python_packages = []
 system_packages = []
 npm_packages = []
 optional_assets = [
+  { type = "python_module_pack", source = "assets/python/yuanbao-tools.tar.gz", format = "tar.gz", sha256 = "cabb5b8c0f7ca04bdfb129387e0d0d0f3a3c79192c31d69ad977f782b65a2d3e", destination = "python-site-packages/tools" },
   { type = "skill_pack", source = "assets/skills/skills-yuanbao.tar.gz", format = "tar.gz", destination = "skills", overwrite = false },
   { type = "python_module_pack", source = "assets/python/yuanbao-gateway-platforms.tar.gz", format = "tar.gz", destination = "python-site-packages/gateway/platforms", overwrite = false },
 ]
 
 [tools]
 toolsets = ["yuanbao"]
-tools = ["yuanbao"]
+tools = [
+  "yb_query_group_info",
+  "yb_query_group_members",
+  "yb_send_dm",
+  "yb_search_sticker",
+  "yb_send_sticker",
+]
 
 [permissions]
 network = true

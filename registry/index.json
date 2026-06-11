@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T20:32:28.798896+00:00",
+  "generated_at": "2026-06-11T16:02:38.402381+00:00",
   "package_count": 46,
   "packages": {
     "browser": {
@@ -28,7 +28,7 @@
           {
             "destination": "python-site-packages/tools",
             "format": "tar.gz",
-            "sha256": "3d8c74f67399df8e8758639c118dbc73f8180870f212c43310e613524f1600bc",
+            "sha256": "16b5449889bc336958bdf489dd07d42e19f669008391f9cc63e572dc6544cf62",
             "source": "assets/python/browser-tools.tar.gz",
             "type": "python_module_pack"
           },
@@ -48,7 +48,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/browser/package.toml",
-      "manifest_sha256": "5c9d2ef06e96b0231f7f75b7210946f50830dfc0352c8a8390096ccb4b8f37cd",
+      "manifest_sha256": "a19f07e6a486958f83742b248d07a362a7b48feab8a19bd16434039e37f5a130",
       "name": "browser",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -609,16 +609,14 @@
             "type": "python_module_pack"
           }
         ],
-        "python_extras": [
-          "discord"
-        ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/discord/package.toml",
-      "manifest_sha256": "17f662c717c457e004d53d8663f8644d85aac09a0af422c63b516bf2b4b843df",
+      "manifest_sha256": "4d0bf87badf24cc85a05aec1f23cc82cb5556a62c2558c189cb166b57d117baf",
       "name": "discord",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -668,16 +666,14 @@
       "install": {
         "npm_packages": [],
         "optional_assets": [],
-        "python_extras": [
-          "discord"
-        ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/discord-admin/package.toml",
-      "manifest_sha256": "67cfc8375caa30b9ccdec499044f70acf884376275d1bc530a5deff4e192332a",
+      "manifest_sha256": "76b1d651105e7d804ab0996356be8d88da6bc93bfa64b39eb4252b99649beb73",
       "name": "discord-admin",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -796,6 +792,13 @@
         "npm_packages": [],
         "optional_assets": [
           {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "b25c12dba3ba4ef56d2a3cf89fe243096675465d0a61768a51866f8c10add702",
+            "source": "assets/python/feishu-tools.tar.gz",
+            "type": "python_module_pack"
+          },
+          {
             "destination": "python-site-packages/gateway/platforms",
             "format": "tar.gz",
             "overwrite": false,
@@ -813,7 +816,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/feishu/package.toml",
-      "manifest_sha256": "9cab2e9a5cef5768d429cdcd696b482b1486510600c2af106366feed399c245e",
+      "manifest_sha256": "51d5b695bc0e6a6861a235da4532548328b9a0674ed52a41b53e10c447b302fb",
       "name": "feishu",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -835,7 +838,13 @@
         "signed": false
       },
       "tools": {
-        "tools": [],
+        "tools": [
+          "feishu_doc_read",
+          "feishu_drive_list_comments",
+          "feishu_drive_list_comment_replies",
+          "feishu_drive_reply_comment",
+          "feishu_drive_add_comment"
+        ],
         "toolsets": [
           "feishu_doc",
           "feishu_drive"
@@ -863,17 +872,23 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
-        "python_extras": [
-          "gateway"
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "5d44c236697e0174595b50cb2450a7ed867355016dcae07ed569ed6de61934dd",
+            "source": "assets/python/gateway-tools.tar.gz",
+            "type": "python_module_pack"
+          }
         ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/gateway/package.toml",
-      "manifest_sha256": "265c2e8c6a43ffc15fbae1b05530c4711cac2f813710f36e76d999b421f1c899",
+      "manifest_sha256": "9494c290e51b2a6643b127346c5d5201bf39ea77eccf1696812a1c1c5ed78341",
       "name": "gateway",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -895,7 +910,9 @@
         "signed": false
       },
       "tools": {
-        "tools": [],
+        "tools": [
+          "send_message"
+        ],
         "toolsets": [
           "messaging"
         ]
@@ -928,6 +945,13 @@
         "npm_packages": [],
         "optional_assets": [
           {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "39ce51b213057d9e27822d6282bbe82f4600ba9ebe7ab627d045d413295547c4",
+            "source": "assets/python/homeassistant-tools.tar.gz",
+            "type": "python_module_pack"
+          },
+          {
             "destination": "skills",
             "format": "tar.gz",
             "overwrite": false,
@@ -945,7 +969,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/homeassistant/package.toml",
-      "manifest_sha256": "6b21ab62f598e2aae17a209d8561ca1e04a9ef0619019097764d102def49305b",
+      "manifest_sha256": "343d84fac9259a6353922a839e757d1a5db6ff20e6dda7475dac793cca3b7f94",
       "name": "homeassistant",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -962,12 +986,17 @@
       },
       "schema_version": 1,
       "security": {
-        "checksum": "d987c43a44a319a566bd8f7eeb48355e11499be0cbce3234dd3a11737faa59ef",
+        "checksum": "",
         "post_install_scripts": false,
         "signed": false
       },
       "tools": {
-        "tools": [],
+        "tools": [
+          "ha_list_entities",
+          "ha_get_state",
+          "ha_list_services",
+          "ha_call_service"
+        ],
         "toolsets": [
           "homeassistant"
         ]
@@ -993,17 +1022,23 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
-        "python_extras": [
-          "image-gen"
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "27272ee1b7fcb5ee7339ff69c1c4f61b3607a618a8a03343b8384caeddb1dfa8",
+            "source": "assets/python/image-gen-tools.tar.gz",
+            "type": "python_module_pack"
+          }
         ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/image-gen/package.toml",
-      "manifest_sha256": "da49acae44d41075ae7fa84ae171ce45e2773cf50a0760dabc9209f6af248893",
+      "manifest_sha256": "ce02515ada7f0131957f6bae4e84d2f063dfdb501a816283b2ad25ccec2c5e54",
       "name": "image-gen",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -2714,16 +2749,14 @@
             "type": "skill_pack"
           }
         ],
-        "python_extras": [
-          "spotify"
-        ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/spotify/package.toml",
-      "manifest_sha256": "75dbcb184df4e01d2506108d5110ecc9fad4ce90cf06ab35983a2cedaf54e6dd",
+      "manifest_sha256": "b5f50fcaf3a00e3790f0cafcc0dd030cab3c435269376cf7a58268c373251aa2",
       "name": "spotify",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -2771,17 +2804,23 @@
       },
       "install": {
         "npm_packages": [],
-        "optional_assets": [],
-        "python_extras": [
-          "tts"
+        "optional_assets": [
+          {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "b2f631ad59418a0ac72b75d89c91d6b0c7a1e69b575a18dee4e85fd52520f221",
+            "source": "assets/python/tts-tools.tar.gz",
+            "type": "python_module_pack"
+          }
         ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/tts/package.toml",
-      "manifest_sha256": "0463830276ec8b044ed3eca5cd6045a39770c6175f94206886a097e8e52ee082",
+      "manifest_sha256": "570675e4f3883bdeae5c30f1ee40fe1b02c19dc50fb075f3a3278808b9d1256c",
       "name": "tts",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -2804,7 +2843,7 @@
       },
       "tools": {
         "tools": [
-          "tts_speak"
+          "text_to_speech"
         ],
         "toolsets": [
           "tts"
@@ -2844,7 +2883,7 @@
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/voice/package.toml",
-      "manifest_sha256": "3e536c9b80357e702164ae08c39d230ce8a3fd543ecd134812dff6b482067e7f",
+      "manifest_sha256": "131d30cd1de83596ca9f6e0b5e09bf14c4613430f8845b80809cf1d58c3be5e3",
       "name": "voice",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -2867,7 +2906,7 @@
       },
       "tools": {
         "tools": [
-          "tts_speak"
+          "text_to_speech"
         ],
         "toolsets": [
           "tts"
@@ -2970,6 +3009,13 @@
         "npm_packages": [],
         "optional_assets": [
           {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "35ae3fadd5c5bc3af51205edf32f75e3e4db18bddc0486ba697f363eb99f6550",
+            "source": "assets/python/web-search-tools.tar.gz",
+            "type": "python_module_pack"
+          },
+          {
             "destination": "skills",
             "format": "tar.gz",
             "overwrite": false,
@@ -2978,16 +3024,14 @@
             "type": "skill_pack"
           }
         ],
-        "python_extras": [
-          "web-search"
-        ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/web-search/package.toml",
-      "manifest_sha256": "13657f95d9ba173c008047cc048b7c1bd2700f918d20033fd83927391ffccdda",
+      "manifest_sha256": "58cf119fb494c09ba7c086c5dba43d20d5751b0c9fd7dbde8aa2010cfe80dd8c",
       "name": "web-search",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -3004,7 +3048,7 @@
       },
       "schema_version": 1,
       "security": {
-        "checksum": "e45d0b98baef35ca003eed94186d20b4c4ad54e4fbdf6899336e5f8854bafef0",
+        "checksum": "",
         "post_install_scripts": false,
         "signed": false
       },
@@ -3042,6 +3086,13 @@
         "npm_packages": [],
         "optional_assets": [
           {
+            "destination": "python-site-packages/tools",
+            "format": "tar.gz",
+            "sha256": "cabb5b8c0f7ca04bdfb129387e0d0d0f3a3c79192c31d69ad977f782b65a2d3e",
+            "source": "assets/python/yuanbao-tools.tar.gz",
+            "type": "python_module_pack"
+          },
+          {
             "destination": "skills",
             "format": "tar.gz",
             "overwrite": false,
@@ -3058,16 +3109,14 @@
             "type": "python_module_pack"
           }
         ],
-        "python_extras": [
-          "yuanbao"
-        ],
+        "python_extras": [],
         "python_packages": [],
         "system_packages": []
       },
       "license": "MIT",
       "maintainer": "NanoHermes",
       "manifest_path": "packages/official/yuanbao/package.toml",
-      "manifest_sha256": "ec93bcda5190314c1e9e8e5b4bd21e220b6bf940a3b841a478c7e2831602696f",
+      "manifest_sha256": "77ef6ddbb9a102c1314d4f308d26465953a4eab1610e78648a8ed1d1acafd155",
       "name": "yuanbao",
       "nanohermes": {
         "max_version": "<1.0.0",
@@ -3090,7 +3139,11 @@
       },
       "tools": {
         "tools": [
-          "yuanbao"
+          "yb_query_group_info",
+          "yb_query_group_members",
+          "yb_send_dm",
+          "yb_search_sticker",
+          "yb_send_sticker"
         ],
         "toolsets": [
           "yuanbao"
